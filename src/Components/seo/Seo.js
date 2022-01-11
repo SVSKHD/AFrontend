@@ -7,7 +7,7 @@ const Seo = ({ title, description, keywords, keyphrase, image, url }) => {
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       <script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-N1KFHJYV8P"
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY0KS1Y346"
       ></script>
 
       <title>{title}</title>

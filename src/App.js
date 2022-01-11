@@ -38,7 +38,8 @@ const ForgotPassword = lazy(() => import("./pages/auth/forgotPassword"));
 const RegistrationComplete = lazy(() =>
   import("./pages/auth/Registrationcomplete")
 );
-
+const Slug = lazy(() => import("./pages/categories/slug"));
+const SubCategory = lazy(() => import("./pages/SubCategory/SubCategory"));
 // user
 const userDashboard = lazy(() => import("./pages/user/dashboard"));
 const userCart = lazy(() => import("./pages/user/userCart"));
@@ -102,6 +103,14 @@ function App() {
       path: "/product/:slug",
       component: Product,
     },
+    {
+      path:"/category/:slug",
+      component:Slug
+    },
+    {
+      path:"/subcategory/:slug",
+      componenet:SubCategory
+    }
   ];
 
   const userRoutes = [
@@ -141,7 +150,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const idTokenResult = await user.getIdTokenResult();
-        console.log("user", user);
+        // console.log("user", user);
         // save in DB
         currentUser(idTokenResult.token)
           .then((res) => {
