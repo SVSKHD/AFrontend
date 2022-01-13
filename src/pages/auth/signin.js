@@ -8,7 +8,7 @@ import { createOrUpdateUser } from "../../Components/functions/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { auth, googleAuthProvider } from "../../config/firebase";
 // snackbar
-import { toast } from "react-toastify"
+import { toast, Zoom } from "react-toastify"
 import { FaGoogle } from "react-icons/fa";
 
 const Signin = () => {
@@ -72,12 +72,31 @@ const Signin = () => {
       toast.success(
         `Succesfully Logged In`,
         {
-          position: "bottom-center",
+          theme:"dark",
+          position:"bottom-center",
+          autoClose: 10000,
+          transition:Zoom,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         }
       );
       // history.push("/");
     } catch (error) {
       setLoading(false);
+      toast.error('Please Place Valid Credentials', {
+        position: "bottom-center",
+        theme:"dark",
+        autoClose: 10000,
+        transition:Zoom,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     }
   };
 
@@ -100,12 +119,37 @@ const Signin = () => {
               },
             });
             roleBasedRedirect(res);
+            toast.success(
+              `Succesfully Logged In with your Gmail`,
+              {
+                theme:"dark",
+                position:"bottom-center",
+                autoClose: 10000,
+                transition:Zoom,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              }
+            );
           })
           .catch((err) => console.log(err));
         // history.push("/");
       })
       .catch((err) => {
         console.log(err);
+        toast.error('Please Place Valid Credentials', {
+          position: "bottom-center",
+          theme:"dark",
+          autoClose: 10000,
+          transition:Zoom,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       });
   };
 
@@ -172,7 +216,7 @@ const Signin = () => {
                           class="btn btn-theme btn-lg rounded-pill px-5"
                         >
                           <FaGoogle size={20} />
-                          Login With Google
+                          &nbsp; Login With Google
                         </button>
                       </div>
                       <p class="mt-3 text-secondary">

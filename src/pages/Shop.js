@@ -10,6 +10,10 @@ import { getSubs } from "../Components/functions/SubCategory";
 import ProductCard from "../Components/cards/ProductCard";
 import Seo from "../Components/seo/Seo";
 import { Input } from "reactstrap";
+import ShopBadge from "../Components/Badges/ShopBadge";
+import Carousel from "react-grid-carousel";
+import {FaStar} from "react-icons/fa"
+
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -38,6 +42,7 @@ const Shop = () => {
   ]);
   const [color, setColor] = useState("");
   const [shipping, setShipping] = useState("");
+
 
   let dispatch = useDispatch();
 
@@ -110,23 +115,28 @@ const Shop = () => {
     </>
   );
 
-  const showSubCategories = () => (
+  const showSubs = () => (
     <div class="filter-contents">
-      {subs.map((s, i) => (
+      {subs.map((c, i) => (
         <div key={i} class="mt-2">
           <div class="custom-control custom-checkbox">
-            <label
-              onClick={handleSub(s)}
-              class="custom-control-label"
-              for="cat1"
-            >
-              {s.name}
+            <input
+              onChange={()=>handleSub(c)}
+              type="checkbox"
+              name=""
+              value={c}
+              
+              class="custom-control-input"
+              id="cat1"
+            />
+            <label class="custom-control-label" for="cat1">
+              {c.name}
             </label>
           </div>
         </div>
       ))}
     </div>
-  );
+  )
 
   const handleCheck = (e) => {
     // reset
@@ -257,6 +267,33 @@ const Shop = () => {
     fetchProducts({ shipping: e.target.value });
   };
 
+
+  const handleStarClick = (num) => {
+    // console.log(num);
+    dispatch({
+      type: "SEARCH_QUERY",
+      payload: { text: "" },
+    });
+    setPrice([0, 0]);
+    setCategoryIds([]);
+    setStar(num);
+    setSub("");
+    setBrand("");
+    setColor("");
+    setShipping("");
+    fetchProducts({ stars: num });
+  };
+
+  const showStars = () => (
+    <div className="pr-4 pl-4 pb-2">
+      <FaStar starClick={handleStarClick} numberOfStars={5} />
+      <FaStar starClick={handleStarClick} numberOfStars={4} />
+      <FaStar starClick={handleStarClick} numberOfStars={3} />
+      <FaStar starClick={handleStarClick} numberOfStars={2} />
+      <FaStar starClick={handleStarClick} numberOfStars={1} />
+    </div>
+  );
+
   return (
     <>
       <Layout>
@@ -309,7 +346,7 @@ const Shop = () => {
                       <div class="mt-2">
                         <Input
                           value={price}
-                          onChange={(e) => setPrice(e.target.value)}
+                          onChange={(e) => handleSlider(e.target.value)}
                           name="range"
                           type="range"
                           min="0"
@@ -331,7 +368,7 @@ const Shop = () => {
                         Sub-Categories
                       </span>
                     </div>
-                    {/* {showSubCategories()} */}
+                    {showSubs()}
                   </div>
 
                   <div class="inner-filters mt-4">
@@ -342,20 +379,7 @@ const Shop = () => {
                     </div>
                     <div class="filter-contents">
                       <div class="mt-2">
-                        {
-                          <div class="custom-control custom-checkbox">
-                            <input
-                              type="checkbox"
-                              name=""
-                              value=""
-                              class="custom-control-input"
-                              id="cat7"
-                            />
-                            <label class="custom-control-label" for="cat7">
-                              4 ★ & above
-                            </label>
-                          </div>
-                        }
+                        {showStars()}
                       </div>
                     </div>
                   </div>
@@ -378,6 +402,16 @@ const Shop = () => {
                 </div>
               </div>
               <div className="col-md-10 out-products">
+                <hr />
+                <Carousel cols={3} rows={1} gap={100} loop>
+                  {categories.map((c, i) => (
+                    <Carousel.Item key={i}>
+                      <ShopBadge name={c.name} to={`/category/${c.slug}`} />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+
+                <hr />
                 <div className="row">
                   {products.map((product, i) => (
                     <div className="col-md-4">
