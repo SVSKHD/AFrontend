@@ -162,13 +162,13 @@ const Product = ({ match }) => {
                 <div className="addtoCart my-3">
                   <button
                     onClick={handleAddToCart}
-                    className="btn btn-lg btn-theme px-5"
+                    className="btn btn-lg btn-theme px-5 m-1"
                   >
                     Add to Cart
                   </button>{" "}
                   &nbsp;
                   {!user ? (
-                    <button className="btn btn-lg btn-danger btnwish  px-5">
+                    <button className="btn btn-lg m-1 btn-danger btnwish  px-5">
                       <Link
                         className="text-decoration-none text-white"
                         to="/signin"
@@ -196,10 +196,13 @@ const Product = ({ match }) => {
                   )}
                 </div>
                 <div className="prod-description pe-md-5 mt-3">
-                  <p>{product.description}</p>
+                  <h5>Briefly About Product</h5>
+                  <p><b>{product.description}</b></p>
                 </div>
                 <hr />
                 <div class="btn-group" role="group" aria-label="Basic example">
+                  <h4>Contact Us :</h4>
+                  
                   <a
                     href={`https://api.whatsapp.com/send?phone=9182119842&text=Hello We want Bathroom Softener we have seen it through Aquakart ${product.title}`}
                     target={"_blank"}

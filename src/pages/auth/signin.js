@@ -8,7 +8,7 @@ import { createOrUpdateUser } from "../../Components/functions/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { auth, googleAuthProvider } from "../../config/firebase";
 // snackbar
-
+import { toast } from "react-toastify"
 import { FaGoogle } from "react-icons/fa";
 
 const Signin = () => {
@@ -69,7 +69,12 @@ const Signin = () => {
           roleBasedRedirect(res);
         })
         .catch((err) => console.log(err));
-
+      toast.success(
+        `Succesfully Logged In`,
+        {
+          position: "bottom-center",
+        }
+      );
       // history.push("/");
     } catch (error) {
       setLoading(false);
@@ -121,29 +126,25 @@ const Signin = () => {
                     <h1 class="text-center font-weight-bold mb-4">
                       Welcome Back
                     </h1>
-                    <form onSubmit={handleSubmit}>
+                    <form>
                       <div class="form-group">
                         <input
                           type="email"
-                          class="form-control"
-                          id="email"
-                          placeholder="name@example.com"
-                          name="username"
+                          className="form-control"
+                          placeholder="Email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          required=""
+                          autoFocus
                         />
                       </div>
                       <div class="form-group">
                         <input
                           type="password"
-                          class="form-control"
-                          id="pass"
-                          placeholder="*********"
-                          name="password"
+                          className="form-control"
+                          placeholder="Your Password"
                           value={password}
-                          onChange={(e) => setPassword(e.target.password)}
-                          required=""
+                          onChange={(e) => setPassword(e.target.value)}
+                          autoFocus
                         />
                       </div>
                       <div class="form-group form-check text-right">
@@ -155,9 +156,11 @@ const Signin = () => {
                       </div>
                       <div class="text-center">
                         <button
+                         onClick={handleSubmit}
                           type="submit"
                           name="submit"
                           class="btn btn-theme btn-lg rounded-pill px-5"
+                          disabled={!email || !password}
                         >
                           <i class="bi bi-box-arrow-in-right"></i> Login
                         </button>

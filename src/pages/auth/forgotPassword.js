@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 // auth
 import { auth } from "../../config/firebase";
+import { toast } from "react-toastify"
 // notifications
 
 const ForgotPassword = () => {
@@ -31,6 +32,12 @@ const ForgotPassword = () => {
       .then(() => {
         setEmail("");
         setLoading(false);
+        toast.success(
+          `Email is sent to ${email} , Please Check your Email to reset Password`,
+          {
+            position: "bottom-center",
+          }
+        );
       })
       .catch((error) => {
         setLoading(false);
@@ -59,12 +66,11 @@ const ForgotPassword = () => {
                     <div class="form-group">
                       <input
                         type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="name@example.com"
-                        name="username"
-                        value=""
-                        required=""
+                        value={email}
+                        className="form-control"
+                        onChange={(e) => setEmail(e.target.value)}
+                        autoFocus
+                        placeholder="Place Your Registered Email"
                       />
                     </div>
                     <div class="text-center">

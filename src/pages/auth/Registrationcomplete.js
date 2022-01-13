@@ -2,17 +2,17 @@ import { useState } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { useHistory } from "react-router-dom";
 import Login from "../../images/login.svg";
+import { toast } from "react-toastify"
 // functions
 import { auth } from "../../config/firebase";
 import { createOrUpdateUser } from "../../Components/functions/auth";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 
-const RegistrationComplete = () => {
+const RegistrationComplete = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let history = useHistory();
   let dispatch = useDispatch();
   let { user } = useSelector((state) => ({ ...state }));
 
@@ -26,10 +26,16 @@ const RegistrationComplete = () => {
     e.preventDefault();
     // validation
     if (!email || !password) {
+      toast.error("Email and password is required", {
+        position: "bottom-center",
+      });
       return;
     }
 
     if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long", {
+        position: "bottom-center",
+      });
       return;
     }
 
@@ -63,12 +69,18 @@ const RegistrationComplete = () => {
             });
           })
           .catch((err) => console.log(err));
-
+          toast.success(
+            `Succesfully Logged In ${email}.`,
+            {
+              position: "bottom-center",
+            }
+          );
         // redirect
         history.push("/");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.message, { position: "bottom-center" });
     }
   };
   return (
@@ -91,28 +103,23 @@ const RegistrationComplete = () => {
                     <div class="form-group">
                       <input
                         type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="name@example.com"
-                        disabled
-                        name="username"
+                        className="form-control"
+                        placeholder="Email"
                         value={email}
+                        disabled
                       />
                     </div>
                     <div class="form-group">
                       <input
                         type="password"
-                        class="form-control"
-                        id="pass"
-                        placeholder="*********"
-                        name="password"
+                        className="form-control"
+                        placeholder="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.password)}
-                        required=""
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
                     <div class="form-group form-check text-right">
-                      <a href="/Forgot-password">
+                      <a className="text-decoration-none" href="/Forgot-password">
                         <p class="form-check-label" for="exampleCheck1">
                           Forgot Password ?
                         </p>

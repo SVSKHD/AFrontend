@@ -26,39 +26,39 @@ const Slug = ({ match }) => {
     return (
         <>
             <Layout>
-            <div className="m-5">
-             <Seo
-             
-             />
-<div className="container">
-    <div className="row">
-        <h4>{loading ? (  <div style={{ textAlign: "center" }}>
-              <div style={{ marginBottom: "10rem" }} />
-              <img
-                style={{ borderRadius: "15rem" }}
-                className="shadow-lg img-thumbnail"
-                src={LOGO}
-                alt="Aquakrt Logo"
-              />
-              <div style={{ marginBottom: "2rem" }} />
-              <span class="loader">
-                <span class="loader-inner"></span>
-              </span>
-            </div>):(
-                <h1 className="m-5">{products.length} Products in {category.name}</h1>
-            )}</h4>
-            <hr/>
-            <div className="row">
-                {products.map((p ,i)=>(
-                    <div key={i} className="col-md-6">
-                        <ProductCard p={p} />
-                    </div>
-                ))}
-            </div>
-    </div>
-</div>
+                <div className="m-5">
+                    <Seo
 
-</div>
+                    />
+                    <div className="container">
+                        <div className="row">
+                            <h4>{loading ? (<div style={{ textAlign: "center" }}>
+                                <div style={{ marginBottom: "10rem" }} />
+                                <img
+                                    style={{ borderRadius: "15rem" }}
+                                    className="shadow-lg img-thumbnail"
+                                    src={LOGO}
+                                    alt="Aquakrt Logo"
+                                />
+                                <div style={{ marginBottom: "2rem" }} />
+                                <span class="loader">
+                                    <span class="loader-inner"></span>
+                                </span>
+                            </div>) : (
+                                <h1 className="text-center m-5">{products.length} Products in {category.name}</h1>
+                            )}</h4>
+                            <hr />
+                            <div className="row">
+                                {products.map((p, i) => (
+                                    <div key={i} className="col-md-4">
+                                        <ProductCard product={p} />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </Layout>
         </>
     )

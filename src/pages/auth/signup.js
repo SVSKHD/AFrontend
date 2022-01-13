@@ -4,7 +4,7 @@ import SignupI from "../../images/signup.svg";
 // redux
 import { auth } from "../../config/firebase";
 import { useSelector } from "react-redux";
-
+import {toast} from "react-toastify"
 import { useHistory } from "react-router-dom";
 
 const Signup = () => {
@@ -23,7 +23,12 @@ const Signup = () => {
       handleCodeInApp: true,
     };
     await auth.sendSignInLinkToEmail(email, config);
-
+    toast.success(
+      `Email is sent to ${email}.Click link to complete registration`,
+      {
+        position: "bottom-center",
+      }
+    );
     window.localStorage.setItem("emailForRegistration", email);
     setEmail("");
   };

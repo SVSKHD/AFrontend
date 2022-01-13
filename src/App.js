@@ -159,6 +159,8 @@ function App() {
               payload: {
                 name: res.data.name,
                 email: res.data.email,
+                address:res.data.address,
+                phone:res.data.phone,
                 token: idTokenResult.token,
                 role: res.data.role,
                 _id: res.data._id,
@@ -185,7 +187,7 @@ function App() {
                 alt="Aquakrt Logo"
               />
               <div style={{ marginBottom: "2rem" }} />
-              <span class="loader">
+              <span class="text-center loader">
                 <span class="loader-inner"></span>
               </span>
             </div>
