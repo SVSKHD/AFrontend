@@ -2,30 +2,37 @@ import LOGO from "../../images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase";
+import { useState } from "react";
 
 const Nav = () => {
+  const [Active , setActive] = useState("")
   let dispatch = useDispatch();
   let history = useHistory();
   let { user, cart } = useSelector((state) => ({ ...state }));
 
   const navitems = [
     {
+      state:Active,
       path: "/",
       name: "Home",
     },
     {
+      state:Active,
       path: "/about",
       name: "About",
     },
     {
+      state:Active,
       path: "/products",
       name: "products",
     },
     {
+      state:Active,
       path: "/blog",
       name: "Blog",
     },
     {
+      state:Active,
       path: "/contactus",
       name: "Contact Us",
     },
@@ -67,33 +74,17 @@ const Nav = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ms-auto mb-2 mb-md-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    Home
-                  </a>
-                </li>
+                {navitems.map((n, i) => (
+                  <li className="nav-item">
+                    <a className={`nav-link`} aria-current="page" href={n.path}>
+                      {n.name}
+                    </a>
+                  </li>
+                ))}
 
-                <li className="nav-item">
-                  <a className="nav-link" href="/about">
-                    About Us
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/shop">
-                    Shop
-                  </a>
-                </li>
 
-                <li className="nav-item">
-                  <a className="nav-link" href="/blog">
-                    Blog
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/contact">
-                    Contact Us
-                  </a>
-                </li>
+               
+
               </ul>
             </div>
             <div className="nav-items d-inline">

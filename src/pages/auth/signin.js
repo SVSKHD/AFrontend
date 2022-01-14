@@ -10,6 +10,7 @@ import { auth, googleAuthProvider } from "../../config/firebase";
 // snackbar
 import { toast, Zoom } from "react-toastify"
 import { FaGoogle } from "react-icons/fa";
+import Seo from "../../Components/seo/Seo";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -156,6 +157,9 @@ const Signin = () => {
   return (
     <>
       <Layout>
+        <Seo
+        title="Aquakart | Signin Here"
+        />
         <section class="login-page position-relative">
           <div class="container">
             <div class="card shadow">

@@ -13,6 +13,7 @@ import Softeners from "../Components/landingPage/Softeners";
 // seo
 import Seo from "../Components/seo/Seo";
 import LandingPageSchema from "../Components/seo/LandingPageSchema";
+
 const Home = () => {
   return (
     <>
@@ -21,8 +22,9 @@ const Home = () => {
           title={`AquaKart | Best Budget market`}
           description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
           keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+          keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
           image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
-          key={`Aquakart the best mart for Softyeners  , Kent , 3M Grundfos and many more water utility products`}
+          url={process.env.REACT_APP_URL}
         />
         <LandingPageSchema />
         <section className="slider-sec">

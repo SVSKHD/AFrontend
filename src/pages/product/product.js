@@ -22,6 +22,8 @@ import RelatedCard from "../../Components/cards/RelatedCard";
 // images
 import { Carousel } from "react-responsive-carousel";
 import Default from "../../images/Default.png";
+import Seo from "../../Components/seo/Seo"
+import ProductSchema from "../../Components/seo/ProductSchema";
 
 const Product = ({ match }) => {
   const [tootltip, setToolTip] = useState("Click to Add");
@@ -105,8 +107,26 @@ const Product = ({ match }) => {
       getRelated(res.data._id).then((res) => setRelated(res.data));
     });
   };
+  
   return (
     <Layout>
+       <Seo
+          title={`${product.title} | Aquakart`}
+          description={`${product.description}`}
+          keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water softener Demo `}
+          keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+          image={product.images && product.images.length ? product.images[0].url : Default}
+          url={`${process.env.REACT_APP_URL}product/${product.slug}`}
+        />
+        <ProductSchema
+        title={`${product.title} | Aquakart`}
+        images={product.images && product.images.length ? product.images[0].url : Default}
+        price={product.price}
+        stock={product.stock}
+        description={product.description}
+        rating={product.ratings}
+        editor={"Aquakart"}
+        />
       <section className="inner-product-page py-5">
         <div className="container">
           <div className="row">
@@ -197,14 +217,14 @@ const Product = ({ match }) => {
                 </div>
                 <div className="prod-description pe-md-5 mt-3">
                   <h5>Briefly About Product</h5>
+                  <hr/>
                   <p><b>{product.description}</b></p>
                 </div>
                 <hr />
+                <h4>Contact Us</h4>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <h4>Contact Us :</h4>
-                  
                   <a
-                    href={`https://api.whatsapp.com/send?phone=9182119842&text=Hello We want Bathroom Softener we have seen it through Aquakart ${product.title}`}
+                    href={`https://api.whatsapp.com/send?phone=9182119842&text=Hello We have seen it through Aquakart ${product.title} We need this Product`}
                     target={"_blank"}
                     type="button"
                     className="btn btn-light"

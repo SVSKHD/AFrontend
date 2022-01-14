@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { useHistory } from "react-router-dom";
 import Login from "../../images/login.svg";
-import { toast } from "react-toastify"
+import { toast, Zoom } from "react-toastify"
 // functions
 import { auth } from "../../config/firebase";
 import { createOrUpdateUser } from "../../Components/functions/auth";
@@ -69,18 +69,35 @@ const RegistrationComplete = ({ history }) => {
             });
           })
           .catch((err) => console.log(err));
-          toast.success(
-            `Succesfully Logged In ${email}.`,
-            {
-              position: "bottom-center",
-            }
-          );
+        toast.success(
+          `Registration Complete`,
+          {
+            theme: "dark",
+            position: "bottom-center",
+            autoClose: 10000,
+            transition: Zoom,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
         // redirect
         history.push("/");
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message, { position: "bottom-center" });
+      toast.error(error.message, { 
+      theme:"dark",
+      position: "bottom-center",  
+      autoClose: 10000,
+      transition: Zoom,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined, });
     }
   };
   return (
