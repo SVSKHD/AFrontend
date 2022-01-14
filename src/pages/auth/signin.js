@@ -72,10 +72,10 @@ const Signin = () => {
       toast.success(
         `Succesfully Logged In`,
         {
-          theme:"dark",
-          position:"bottom-center",
+          theme: "dark",
+          position: "bottom-center",
           autoClose: 10000,
-          transition:Zoom,
+          transition: Zoom,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -88,15 +88,15 @@ const Signin = () => {
       setLoading(false);
       toast.error('Please Place Valid Credentials', {
         position: "bottom-center",
-        theme:"dark",
+        theme: "dark",
         autoClose: 10000,
-        transition:Zoom,
+        transition: Zoom,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+      });
     }
   };
 
@@ -118,14 +118,13 @@ const Signin = () => {
                 _id: res.data._id,
               },
             });
-            roleBasedRedirect(res);
             toast.success(
-              `Succesfully Logged In with your Gmail`,
+              `Succesfully Logged In`,
               {
-                theme:"dark",
-                position:"bottom-center",
+                theme: "dark",
+                position: "bottom-center",
                 autoClose: 10000,
-                transition:Zoom,
+                transition: Zoom,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -133,23 +132,24 @@ const Signin = () => {
                 progress: undefined,
               }
             );
+            roleBasedRedirect(res);
           })
           .catch((err) => console.log(err));
         // history.push("/");
       })
       .catch((err) => {
         console.log(err);
-        toast.error('Please Place Valid Credentials', {
+        toast.error(err.message, {
           position: "bottom-center",
-          theme:"dark",
+          theme: "dark",
           autoClose: 10000,
-          transition:Zoom,
+          transition: Zoom,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       });
   };
 
@@ -200,7 +200,7 @@ const Signin = () => {
                       </div>
                       <div class="text-center">
                         <button
-                         onClick={handleSubmit}
+                          onClick={handleSubmit}
                           type="submit"
                           name="submit"
                           class="btn btn-theme btn-lg rounded-pill px-5"
@@ -209,15 +209,13 @@ const Signin = () => {
                           <i class="bi bi-box-arrow-in-right"></i> Login
                         </button>
                         <hr />
-                        <button
-                          onClick={googleLogin}
-                          type="submit"
-                          name="submit"
+                        <a
+                          onClick={() => googleLogin()}
                           class="btn btn-theme btn-lg rounded-pill px-5"
                         >
                           <FaGoogle size={20} />
                           &nbsp; Login With Google
-                        </button>
+                        </a>
                       </div>
                       <p class="mt-3 text-secondary">
                         Don't Have an account?{" "}
