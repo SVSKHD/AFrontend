@@ -1,5 +1,7 @@
 import LOGO from "../../images/logo-white.png";
 import CategoryList from "../Lists/CategoryList";
+import {FaWhatsapp , FaPhone} from "react-icons/fa"
+
 const Footer = () => {
   const date = new Date().getFullYear();
   return (
@@ -81,6 +83,20 @@ const Footer = () => {
                     Telangana - 500048.
                   </a>
                 </li>
+                <br/>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <a
+                    href={`https://api.whatsapp.com/send?phone=919182119842&text=Hello We have seen it through Aquakart We need this Product`}
+                    target={"_blank"}
+                    type="button"
+                    className="btn btn-light"
+                  >
+                    <FaWhatsapp size={30} />
+                  </a>
+                  <button type="button" className="btn btn-light">
+                    <FaPhone size={30} />
+                  </button>
+                </div>
               </ul>
             </div>
             <div class="col-md-12 border-top border-light">
