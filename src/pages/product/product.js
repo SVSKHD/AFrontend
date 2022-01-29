@@ -22,8 +22,10 @@ import RelatedCard from "../../Components/cards/RelatedCard";
 // images
 import { Carousel } from "react-responsive-carousel";
 import Default from "../../images/Default.png";
-import Seo from "../../Components/seo/Seo"
+import Seo from "../../Components/seo/Seo";
 import ProductSchema from "../../Components/seo/ProductSchema";
+import StarRating from "react-star-ratings";
+import RatingModal from "../../Components/Modals/RatingModal";
 
 const Product = ({ match }) => {
   const [tootltip, setToolTip] = useState("Click to Add");
@@ -115,12 +117,20 @@ const Product = ({ match }) => {
         description={`${product.description}`}
         keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water softener Demo `}
         keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-        image={product.images && product.images.length ? product.images[0].url : Default}
+        image={
+          product.images && product.images.length
+            ? product.images[0].url
+            : Default
+        }
         url={`${process.env.REACT_APP_URL}product/${product.slug}`}
       />
       <ProductSchema
         title={`${product.title} | Aquakart`}
-        images={product.images && product.images.length ? product.images[0].url : Default}
+        images={
+          product.images && product.images.length
+            ? product.images[0].url
+            : Default
+        }
         price={product.price}
         stock={product.stock}
         description={product.description}
@@ -206,11 +216,24 @@ const Product = ({ match }) => {
                   )}
                   <div className="mb-2" />
                   {!user ? (
-                    <button className="btn btn-lg btn-outline-warning btnwish px-5">
+                    <a
+                      href="/signin"
+                      className="btn btn-lg btn-outline-warning btnwish px-5"
+                    >
                       Please Login to leave Rating
-                    </button>
+                    </a>
                   ) : (
-                    <button className="btn btn-lg btn-outline-warning btnwish px-5">
+                    <button className="btn btn-outline-warning btnwish px-5">
+                      <RatingModal onClick={onStarClick}>
+                        <StarRating
+                          name={product._id}
+                          numberOfStars={5}
+                          rating={2}
+                          changeRating={onStarClick}
+                          isSeletable={true}
+                          starRatedColor="#002d80"
+                        />
+                      </RatingModal>
                       Rate the Product
                     </button>
                   )}
@@ -218,7 +241,9 @@ const Product = ({ match }) => {
                 <div className="prod-description pe-md-5 mt-3">
                   <h5>Briefly About Product</h5>
                   <hr />
-                  <p><b>{product.description}</b></p>
+                  <p>
+                    <b>{product.description}</b>
+                  </p>
                 </div>
                 <hr />
                 <h4>Contact Us</h4>
@@ -231,7 +256,12 @@ const Product = ({ match }) => {
                   >
                     <FaWhatsapp size={30} />
                   </a>
-                  <a href="tel:+919182119842" target="_blank" type="button" className="btn btn-light">
+                  <a
+                    href="tel:+919182119842"
+                    target="_blank"
+                    type="button"
+                    className="btn btn-light"
+                  >
                     <FaPhone size={30} />
                   </a>
                 </div>
@@ -248,11 +278,15 @@ const Product = ({ match }) => {
                     <tbody>
                       <tr>
                         <td>Brand</td>
-                        <td><b>{product.brand}</b></td>
+                        <td>
+                          <b>{product.brand}</b>
+                        </td>
                       </tr>
                       <tr>
                         <td>Color</td>
-                        <td><b>{product.color}</b></td>
+                        <td>
+                          <b>{product.color}</b>
+                        </td>
                       </tr>
                       <tr>
                         <td>Shipping</td>
@@ -272,7 +306,12 @@ const Product = ({ match }) => {
                               className="text-decoration-none"
                               to={`/category/${product.category.slug}`}
                             >
-                              <h5><span class="badge bg-secondary"> {product.category.name}</span></h5>
+                              <h5>
+                                <span class="badge bg-secondary">
+                                  {" "}
+                                  {product.category.name}
+                                </span>
+                              </h5>
                             </Link>
                           </td>
                         ) : (
@@ -285,7 +324,9 @@ const Product = ({ match }) => {
                           product.subs.map((s, i) => (
                             <td key={i}>
                               <Link to={`/sub-category/${s.slug}`}>
-                                <h5><span class="badge bg-dark">{s.name}</span></h5>
+                                <h5>
+                                  <span class="badge bg-dark">{s.name}</span>
+                                </h5>
                               </Link>
                             </td>
                           ))}
@@ -299,7 +340,7 @@ const Product = ({ match }) => {
                           </td>
                         ) : (
                           <td className="text-info">
-                           <b>({product.quantity}) in Stock{" "}</b>
+                            <b>({product.quantity}) in Stock </b>
                           </td>
                         )}
                       </tr>
@@ -325,10 +366,10 @@ const Product = ({ match }) => {
             <div className="row">
               {related.length > 0
                 ? related.map((r, i) => (
-                  <div key={i} className="col-md-4 mb-1">
-                    <RelatedCard product={r} />
-                  </div>
-                ))
+                    <div key={i} className="col-md-4 mb-1">
+                      <RelatedCard product={r} />
+                    </div>
+                  ))
                 : "No Related Products"}
             </div>
           </div>

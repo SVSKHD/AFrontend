@@ -2,6 +2,8 @@ import Layout from "../Components/Layout/Layout";
 import Contact1 from "../images/contact.jpg";
 import Banner from "../images/contact-banner.jpg";
 import Seo from "../Components/seo/Seo";
+import { FaWhatsapp, FaPhone , FaInstagram} from "react-icons/fa";
+
 const Contact = () => {
   return (
     <Layout>
@@ -24,7 +26,34 @@ const Contact = () => {
                 <img src={Contact1} alt="Aquakart Contact" class="w-100" />
               </div>
             </div>
-            <div class="col-md-6">
+            <div className="col-md-6">
+              <div class="btn-group align" role="group" aria-label="Basic example">
+                <a
+                  href={`https://api.whatsapp.com/send?phone=919182119842&text=Please send us your queries`}
+                  target={"_blank"}
+                  type="button"
+                  className="btn btn-success"
+                >
+                  <FaWhatsapp size={30} />
+                </a>
+                <a
+                  href="tel:+919182119842"
+                  target="_blank"
+                  type="button"
+                  className="btn btn-light"
+                >
+                  <FaPhone size={30} />
+                </a>
+                <a
+                  href="https://www.instagram.com/aquakart.co.in"
+                  target="_blank"
+                  type="button"
+                  className="btn btn-dark"
+                >
+                  <FaInstagram size={30} />
+                </a>
+              </div>
+              <div style={{ marginBottom: "2rem" }} />
               <h4 class="fw-bold mb-3">Write to us!</h4>
               <form>
                 <div class="mb-3 row">
@@ -85,6 +114,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <br />
     </Layout>
   );
 };

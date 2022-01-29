@@ -234,6 +234,7 @@ button:hover {
   font-weight: bolder;
 }
 
-
 /* Aboutcss */
-
+.align{
+  text-align: center;
+}

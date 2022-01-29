@@ -4,7 +4,7 @@ import SignupI from "../../images/signup.svg";
 // redux
 import { auth } from "../../config/firebase";
 import { useSelector } from "react-redux";
-import {toast , Zoom} from "react-toastify"
+import { toast, Zoom } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
 const Signup = () => {
@@ -23,20 +23,17 @@ const Signup = () => {
       handleCodeInApp: true,
     };
     await auth.sendSignInLinkToEmail(email, config);
-    toast.success(
-      `Email has been sent to ${email} please check it`,
-      {
-        theme: "dark",
-        position: "bottom-center",
-        autoClose: 10000,
-        transition: Zoom,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      }
-    );
+    toast.success(`Email has been sent to ${email} please check it`, {
+      theme: "dark",
+      position: "bottom-center",
+      autoClose: 10000,
+      transition: Zoom,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     window.localStorage.setItem("emailForRegistration", email);
     setEmail("");
   };

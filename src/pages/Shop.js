@@ -12,8 +12,7 @@ import Seo from "../Components/seo/Seo";
 import { Input } from "reactstrap";
 import ShopBadge from "../Components/Badges/ShopBadge";
 import Carousel from "react-grid-carousel";
-import {FaStar} from "react-icons/fa"
-
+import { FaStar } from "react-icons/fa";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -42,7 +41,6 @@ const Shop = () => {
   ]);
   const [color, setColor] = useState("");
   const [shipping, setShipping] = useState("");
-
 
   let dispatch = useDispatch();
 
@@ -121,11 +119,10 @@ const Shop = () => {
         <div key={i} class="mt-2">
           <div class="custom-control custom-checkbox">
             <input
-              onChange={()=>handleSub(c)}
+              onChange={() => handleSub(c)}
               type="checkbox"
               name=""
               value={c}
-              
               class="custom-control-input"
               id="cat1"
             />
@@ -136,7 +133,7 @@ const Shop = () => {
         </div>
       ))}
     </div>
-  )
+  );
 
   const handleCheck = (e) => {
     // reset
@@ -267,7 +264,6 @@ const Shop = () => {
     fetchProducts({ shipping: e.target.value });
   };
 
-
   const handleStarClick = (num) => {
     // console.log(num);
     dispatch({
@@ -379,9 +375,7 @@ const Shop = () => {
                       </span>
                     </div>
                     <div class="filter-contents">
-                      <div class="mt-2">
-                        {showStars()}
-                      </div>
+                      <div class="mt-2">{showStars()}</div>
                     </div>
                   </div>
 

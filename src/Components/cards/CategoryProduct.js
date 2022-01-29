@@ -1,7 +1,4 @@
 const CategoryProduct = () => {
-    return (
-    <>
-    </>
-    )
-}
-export default CategoryProduct
+  return <></>;
+};
+export default CategoryProduct;

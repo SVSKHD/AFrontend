@@ -104,13 +104,13 @@ function App() {
       component: Product,
     },
     {
-      path:"/category/:slug",
-      component:Slug
+      path: "/category/:slug",
+      component: Slug,
     },
     {
-      path:"/sub-category/:slug",
-      component:SubCategory
-    }
+      path: "/sub-category/:slug",
+      component: SubCategory,
+    },
   ];
 
   const userRoutes = [
@@ -159,8 +159,8 @@ function App() {
               payload: {
                 name: res.data.name,
                 email: res.data.email,
-                address:res.data.address,
-                phone:res.data.phone,
+                address: res.data.address,
+                phone: res.data.phone,
                 token: idTokenResult.token,
                 role: res.data.role,
                 _id: res.data._id,

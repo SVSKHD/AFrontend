@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 // auth
 import { auth } from "../../config/firebase";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 // notifications
 
 const ForgotPassword = () => {

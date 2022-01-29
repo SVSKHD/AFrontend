@@ -1,9 +1,54 @@
 import Layout from "../Components/Layout/Layout";
 import Seo from "../Components/seo/Seo";
+import Carousel from "react-grid-carousel";
+
+// images
+import AS from "../images/AS.jpg"
+import BS from "../images/BS.jpg"
+import GS from "../images/GS.jpg"
+import ERO from "../images/ERO.jpeg"
+import ROW from "../images/ROW.png"
+import ROS from "../images/ROS.jpg"
+
 const About = () => {
+  const images = [
+    {
+      name: "AquaKart",
+      src: AS
+    },
+    {
+      name: "AquaKart",
+      src: BS
+    },
+    {
+      name: "AquaKart",
+      src: GS
+    },
+    {
+      name: "AquaKart",
+      src: ERO
+    },
+    {
+      name: "AquaKart",
+      src: ROW
+    },
+    {
+      name: "AquaKart",
+      src: ROS
+    },
+  ]
   return (
     <Layout>
       <Seo />
+      <div>
+        <Carousel cols={3} rows={1} gap={10} loop={true} autoplay={8000}>
+          {images.map((m, i) => (
+            <Carousel.Item key={i}>
+              <img height="500" src={m.src} alt={m.name} />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
       <div style={{ marginBottom: "1rem" }} />
       <div className="container">
         <div className="card">

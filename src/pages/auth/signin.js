@@ -8,7 +8,7 @@ import { createOrUpdateUser } from "../../Components/functions/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { auth, googleAuthProvider } from "../../config/firebase";
 // snackbar
-import { toast, Zoom } from "react-toastify"
+import { toast, Zoom } from "react-toastify";
 import { FaGoogle } from "react-icons/fa";
 import Seo from "../../Components/seo/Seo";
 
@@ -70,24 +70,21 @@ const Signin = () => {
           roleBasedRedirect(res);
         })
         .catch((err) => console.log(err));
-      toast.success(
-        `Succesfully Logged In`,
-        {
-          theme: "dark",
-          position: "bottom-center",
-          autoClose: 10000,
-          transition: Zoom,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
+      toast.success(`Succesfully Logged In`, {
+        theme: "dark",
+        position: "bottom-center",
+        autoClose: 10000,
+        transition: Zoom,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       // history.push("/");
     } catch (error) {
       setLoading(false);
-      toast.error('Please Place Valid Credentials', {
+      toast.error("Please Place Valid Credentials", {
         position: "bottom-center",
         theme: "dark",
         autoClose: 10000,
@@ -119,20 +116,17 @@ const Signin = () => {
                 _id: res.data._id,
               },
             });
-            toast.success(
-              `Succesfully Logged In`,
-              {
-                theme: "dark",
-                position: "bottom-center",
-                autoClose: 10000,
-                transition: Zoom,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              }
-            );
+            toast.success(`Succesfully Logged In`, {
+              theme: "dark",
+              position: "bottom-center",
+              autoClose: 10000,
+              transition: Zoom,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
             roleBasedRedirect(res);
           })
           .catch((err) => console.log(err));
@@ -157,9 +151,7 @@ const Signin = () => {
   return (
     <>
       <Layout>
-        <Seo
-        title="Aquakart | Signin Here"
-        />
+        <Seo title="Aquakart | Signin Here" />
         <section class="login-page position-relative">
           <div class="container">
             <div class="card shadow">
