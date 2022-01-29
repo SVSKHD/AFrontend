@@ -108,8 +108,8 @@ function App() {
       component:Slug
     },
     {
-      path:"/subcategory/:slug",
-      componenet:SubCategory
+      path:"/sub-category/:slug",
+      component:SubCategory
     }
   ];
 

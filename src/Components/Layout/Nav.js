@@ -1,39 +1,47 @@
 import LOGO from "../../images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory  , Link} from "react-router-dom";
 import firebase from "firebase";
 import { useState } from "react";
 
+
+
 const Nav = () => {
-  const [Active , setActive] = useState("")
+  const [Active , setActive] = useState(false)
+  const [match , setMatch] = useState(0)
   let dispatch = useDispatch();
   let history = useHistory();
   let { user, cart } = useSelector((state) => ({ ...state }));
 
   const navitems = [
     {
-      state:Active,
+      id:1,
       path: "/",
+      state:true,
       name: "Home",
     },
     {
-      state:Active,
+      id:2,
       path: "/about",
+      state:true,
       name: "About",
     },
     {
-      state:Active,
-      path: "/products",
-      name: "products",
+      id:3,
+      path: "/shop",
+      state:true,
+      name: "Shop",
     },
     {
-      state:Active,
+      id:4,
       path: "/blog",
+      state:true,
       name: "Blog",
     },
     {
-      state:Active,
+      id:5,
       path: "/contactus",
+      state:true,
       name: "Contact Us",
     },
   ];
@@ -52,6 +60,12 @@ const Nav = () => {
     });
     history.push("/signin");
   };
+
+  const handleClick = (id) =>{
+   setMatch(id)
+  }
+
+ 
 
   return (
     <>
@@ -75,10 +89,10 @@ const Nav = () => {
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ms-auto mb-2 mb-md-0">
                 {navitems.map((n, i) => (
-                  <li className="nav-item">
-                    <a className={`nav-link`} aria-current="page" href={n.path}>
+                  <li  key={i} className="nav-item">
+                    <Link  onClick={()=>handleClick(n.id)} className={match===n.id? "nav-link active" : "nav-link"} to={n.path}>
                       {n.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
 

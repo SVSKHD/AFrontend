@@ -107,18 +107,18 @@ const Product = ({ match }) => {
       getRelated(res.data._id).then((res) => setRelated(res.data));
     });
   };
-  
+
   return (
     <Layout>
-       <Seo
-          title={`${product.title} | Aquakart`}
-          description={`${product.description}`}
-          keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water softener Demo `}
-          keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-          image={product.images && product.images.length ? product.images[0].url : Default}
-          url={`${process.env.REACT_APP_URL}product/${product.slug}`}
-        />
-        <ProductSchema
+      <Seo
+        title={`${product.title} | Aquakart`}
+        description={`${product.description}`}
+        keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water softener Demo `}
+        keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+        image={product.images && product.images.length ? product.images[0].url : Default}
+        url={`${process.env.REACT_APP_URL}product/${product.slug}`}
+      />
+      <ProductSchema
         title={`${product.title} | Aquakart`}
         images={product.images && product.images.length ? product.images[0].url : Default}
         price={product.price}
@@ -126,7 +126,7 @@ const Product = ({ match }) => {
         description={product.description}
         rating={product.ratings}
         editor={"Aquakart"}
-        />
+      />
       <section className="inner-product-page py-5">
         <div className="container">
           <div className="row">
@@ -217,7 +217,7 @@ const Product = ({ match }) => {
                 </div>
                 <div className="prod-description pe-md-5 mt-3">
                   <h5>Briefly About Product</h5>
-                  <hr/>
+                  <hr />
                   <p><b>{product.description}</b></p>
                 </div>
                 <hr />
@@ -231,17 +231,11 @@ const Product = ({ match }) => {
                   >
                     <FaWhatsapp size={30} />
                   </a>
-                  <button type="button" className="btn btn-light">
+                  <a href="tel:+919182119842" target="_blank" type="button" className="btn btn-light">
                     <FaPhone size={30} />
-                  </button>
+                  </a>
                 </div>
                 <hr />
-                <div className="prod-category h6">
-                  <strong>Category:</strong> &nbsp;
-                  <span className="badge rounded-pill bg-primary">
-                    Auto Softner
-                  </span>
-                </div>
                 <div className="prod-specifications mt-3">
                   <h5 className="fw-bold mb-3">Other Specifications</h5>
                   <table className="table border border-secondary rounded">
@@ -254,11 +248,11 @@ const Product = ({ match }) => {
                     <tbody>
                       <tr>
                         <td>Brand</td>
-                        <td>{product.brand}</td>
+                        <td><b>{product.brand}</b></td>
                       </tr>
                       <tr>
                         <td>Color</td>
-                        <td>{product.color}</td>
+                        <td><b>{product.color}</b></td>
                       </tr>
                       <tr>
                         <td>Shipping</td>
@@ -275,10 +269,10 @@ const Product = ({ match }) => {
                         {product.category && product.category ? (
                           <td>
                             <Link
-                              className="text-decoration-none badge rounded-pill bg-secondary text-white"
+                              className="text-decoration-none"
                               to={`/category/${product.category.slug}`}
                             >
-                              <b>{product.category.name}</b>
+                              <h5><span class="badge bg-secondary"> {product.category.name}</span></h5>
                             </Link>
                           </td>
                         ) : (
@@ -289,13 +283,9 @@ const Product = ({ match }) => {
                         <td>Sub-Category</td>
                         {product.subs &&
                           product.subs.map((s, i) => (
-                            <td>
-                              <Link
-                                key={i}
-                                className="text-decoration-none badge rounded-pill bg-dark text-light"
-                                to={`sub-category/${s.slug}`}
-                              >
-                                <b>{s.name}</b>
+                            <td key={i}>
+                              <Link to={`/sub-category/${s.slug}`}>
+                                <h5><span class="badge bg-dark">{s.name}</span></h5>
                               </Link>
                             </td>
                           ))}
@@ -305,11 +295,11 @@ const Product = ({ match }) => {
                         <td>Instock</td>
                         {product.quantity && product.quantity < 50 ? (
                           <td className="text-danger">
-                            ({product.quantity}) hurry up
+                            <b>({product.quantity}) hurry up</b>
                           </td>
                         ) : (
                           <td className="text-info">
-                            ({product.quantity}) in Stock{" "}
+                           <b>({product.quantity}) in Stock{" "}</b>
                           </td>
                         )}
                       </tr>
@@ -335,10 +325,10 @@ const Product = ({ match }) => {
             <div className="row">
               {related.length > 0
                 ? related.map((r, i) => (
-                    <div key={i} className="col-md-4 mb-1">
-                      <RelatedCard product={r} />
-                    </div>
-                  ))
+                  <div key={i} className="col-md-4 mb-1">
+                    <RelatedCard product={r} />
+                  </div>
+                ))
                 : "No Related Products"}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import LOGO from "../../images/logo-white.png";
 import CategoryList from "../Lists/CategoryList";
-import {FaWhatsapp , FaPhone} from "react-icons/fa"
+import { FaWhatsapp, FaPhone } from "react-icons/fa"
 
 const Footer = () => {
   const date = new Date().getFullYear();
@@ -83,19 +83,19 @@ const Footer = () => {
                     Telangana - 500048.
                   </a>
                 </li>
-                <br/>
+                <br />
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a
-                    href={`https://api.whatsapp.com/send?phone=919182119842&text=Hello We have seen it through Aquakart We need this Product`}
+                    href={`https://api.whatsapp.com/send?phone=919182119842&text=Hello We have seen it through Aquakart We just saw the products and need some help in shopping`}
                     target={"_blank"}
                     type="button"
                     className="btn btn-light"
                   >
                     <FaWhatsapp size={30} />
                   </a>
-                  <button type="button" className="btn btn-light">
+                  <a href="tel:+919182119842" target="_blank" type="button" className="btn btn-light">
                     <FaPhone size={30} />
-                  </button>
+                  </a>
                 </div>
               </ul>
             </div>
