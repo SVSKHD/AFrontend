@@ -27,7 +27,14 @@ const Slug = ({ match }) => {
     <>
       <Layout>
         <div className="m-5">
-          <Seo />
+          <Seo 
+           title={`AquaKart | Best Budget market`}
+           description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+           keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+           keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+           image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+           url={`${process.env.REACT_APP_URL}`}
+          />
           <div className="container">
             <div className="row">
               <h4>

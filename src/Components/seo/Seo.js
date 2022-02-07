@@ -1,6 +1,13 @@
-import { Helmet } from "react-helmet";
+import ReactGa from "react-ga"
+import { useEffect } from "react";
+import {Helmet} from "react-helmet"
 
 const Seo = ({ title, description, keywords, keyphrase, image, url }) => {
+  let slug = window.location.href  
+  useEffect(()=>{
+    ReactGa.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID)
+    ReactGa.pageview(slug)
+  },[])
   return (
     <Helmet>
       {/* analytics */}
