@@ -249,3 +249,22 @@ button:hover {
 .product-wishlist:hover{
   color: red;
 }
+
+.landing{
+  margin: 10rem;
+  padding: 2rem;
+  background-color:#054fa1;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 2rem;
+}
+
+.landing-image{
+  margin:10px;
+  height: 100px;
+}
+
+.landingbutton{
+  padding : 10px;
+  border-radius: 1.5rem;
+}

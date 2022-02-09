@@ -39,7 +39,14 @@ const About = () => {
   ]
   return (
     <Layout>
-      <Seo />
+      <Seo
+          title={`AquaKart | About Us | Best Budget market`}
+          description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+          keywords={`Aquakart , Flipkart , Aquakart About Us , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+          keyphrase={`Aquakaart About Us ,  Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+          image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+          url={`${process.env.REACT_APP_URL}/about`}
+        />
       <div>
         <Carousel cols={3} rows={1} gap={10} loop={true} autoplay={8000}>
           {images.map((m, i) => (

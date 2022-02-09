@@ -3,6 +3,7 @@ import Layout from "../Components/Layout/Layout";
 import IMG1 from "../images/slide-1.jpg";
 import IMG2 from "../images/slide-2.jpg";
 import IMG3 from "../images/slide-3.jpg";
+import NL from "../images/logo-white.png"
 // imgaes
 import IMG4 from "../images/delivery.png";
 import IMG5 from "../images/medal.png";
@@ -13,6 +14,8 @@ import Softeners from "../Components/landingPage/Softeners";
 // seo
 import Seo from "../Components/seo/Seo";
 import LandingPageSchema from "../Components/seo/LandingPageSchema";
+import { Link } from "react-router-dom"
+
 
 const Home = () => {
   return (
@@ -23,7 +26,7 @@ const Home = () => {
           description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
           keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
           keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-          image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+          image={IMG1}
           url={process.env.REACT_APP_URL}
         />
         <LandingPageSchema />
@@ -111,6 +114,25 @@ const Home = () => {
             </div>
           </div>
           <div className="mb-5" />
+
+          <div className="container">
+            <div className="landing">
+              <div className="row">
+                <div className="col">
+                  <img src={NL} className="landing-image" alt="Aquakart Logo" />
+                  <br />
+                </div>
+
+                <div className="col">
+                  <br />
+                  <h1>Aquakart</h1>
+                  <button type="button" class="landingbutton"><Link style={{ textDecoration: 'none', color: 'black' }} to='/blog'><b>Blogs</b></Link></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <div className="container">
             <div className="row">
               <div className="col-md-12">
