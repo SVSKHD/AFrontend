@@ -298,7 +298,7 @@ const Shop = () => {
           description={`Here you can choose your product with custom filters with your need optimised with wide range of varieties of products are added here with great discounts with immediate delivery.`}
           keywords={`Aquakart Shop with various products List , Grundfos , Kent , Liquiclear , Ao Smith`}
           image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
-          url={`${process.env.REACT_APP_URL}shop`}
+          url={`${process.env.REACT_APP_URL}/shop`}
         />
         <section className="products-page pt-5">
           <div className="container">

@@ -1,3 +1,4 @@
+import {useState , useEffect} from "react"
 import Layout from "../Components/Layout/Layout";
 // imgaes
 import IMG1 from "../images/slide-1.jpg";
@@ -15,9 +16,19 @@ import Softeners from "../Components/landingPage/Softeners";
 import Seo from "../Components/seo/Seo";
 import LandingPageSchema from "../Components/seo/LandingPageSchema";
 import { Link } from "react-router-dom"
+import Carousel from "react-grid-carousel";
+import ShopBadge from "../Components/Badges/ShopBadge";
+import {getCategories} from "../Components/functions/category"
 
 
 const Home = () => {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    getCategories().then((res) => setCategories(res.data));
+  }, []);
+
   return (
     <>
       <Layout>
@@ -129,7 +140,14 @@ const Home = () => {
                   <button type="button" class="landingbutton"><Link style={{ textDecoration: 'none', color: 'black' }} to='/blog'><b>Blogs</b></Link></button>
                 </div>
               </div>
-
+              <br/>
+              <Carousel cols={2} rows={1} loop={true} autoplay={3000}>
+                  {categories.map((c, i) => (
+                    <Carousel.Item key={i}>
+                      <ShopBadge name={c.name} to={`/category/${c.slug}`} />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
             </div>
           </div>
 
