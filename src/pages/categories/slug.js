@@ -27,13 +27,13 @@ const Slug = ({ match }) => {
     <>
       <Layout>
         <div className="m-5">
-          <Seo 
-           title={`AquaKart | Best Budget market`}
-           description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
-           keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
-           keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-           image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
-           url={`${process.env.REACT_APP_URL}`}
+          <Seo
+            title={`${category.name} | AquaKart | Best Budget market`}
+            description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself - ${category.name} `}
+            keywords={`${category.name} ,Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+            keyphrase={`Aquakart-${category.name}-Best Budget market , Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+            image={`https://res.cloudinary.com/dcqjrwaoi/image/upload/v1626839719/vvbjezo5crgmmdjanzms.jpg`}
+            url={`${process.env.REACT_APP_URL}/category/${category.name}`}
           />
           <div className="container">
             <div className="row">

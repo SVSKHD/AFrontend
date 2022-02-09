@@ -238,3 +238,14 @@ button:hover {
 .align{
   text-align: center;
 }
+
+.product-wishlist{
+  color: red;
+  transition-property: color;
+  transition-duration: 2s;
+}
+
+
+.product-wishlist:hover{
+  color: red;
+}

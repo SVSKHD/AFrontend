@@ -6,8 +6,10 @@ import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addToWishlist } from "../functions/user";
+import { FaRegHeart, FaHeart } from "react-icons/fa"
 
 const ProductCard = ({ product }) => {
+  const [color, setColor] = useState(false)
   const history = useHistory();
   const { user } = useSelector((state) => ({ ...state }));
 
@@ -79,8 +81,8 @@ const ProductCard = ({ product }) => {
                 <i className="bi bi-cart2"></i>Add to Cart
               </button>
             </span>
-            <span onClick={() => handleAddToWishlist()} className="wishlist">
-              <i className="bi bi-heart text-danger"></i>
+            <span onClick={() => handleAddToWishlist()} onMouseEnter={() => setColor(true)} onMouseLeave={() => setColor(false)} className="product-wishlist">
+              {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
             </span>
           </div>
         </div>
