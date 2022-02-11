@@ -127,48 +127,33 @@ const Home = () => {
 
           <div className="container">
             <div
+              class="card mb-3"
               style={{
                 margin: "5rem",
                 textAlign: "center",
                 backgroundColor: "#054fa1",
                 borderRadius: "3rem",
+                color: "white",
               }}
-              className=" card landing p-5"
             >
-              <div className="card-body">
-                <div className="row">
-                  <div className="col">
-                    <img
-                      src={NL}
-                      className="landing-image"
-                      alt="Aquakart Logo"
-                    />
-                    <br />
-                  </div>
-
-                  <div className="col">
-                    <br />
-                    <h1 style={{ color: "white" }}>Aquakart</h1>
-                    <br />
-                    <button type="button" class="landingbutton">
-                      <Link
-                        style={{ textDecoration: "none", color: "black" }}
-                        to="/blog"
-                      >
-                        <b>Blogs</b>
-                      </Link>
-                    </button>
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src={NL} class="img-fluid rounded-start" alt="Aquakart Category Intro" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h1 class="card-title">Aquakart</h1>
+                    <hr/>
+                    <Carousel cols={2} rows={1} loop={true} autoplay={3000}>
+                      {categories.map((c, i) => (
+                        <Carousel.Item key={i}>
+                          <ShopBadge name={c.name} to={`/category/${c.slug}`} />
+                        </Carousel.Item>
+                      ))}
+                    </Carousel>
                   </div>
                 </div>
               </div>
-              <br />
-              <Carousel cols={2} rows={1} loop={true} autoplay={3000}>
-                {categories.map((c, i) => (
-                  <Carousel.Item key={i}>
-                    <ShopBadge name={c.name} to={`/category/${c.slug}`} />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
             </div>
           </div>
 
