@@ -127,7 +127,8 @@ const Home = () => {
           <div className="mb-5" />
 
           <div className="container">
-            <div className="landing p-5">
+            <div style={{margin:'5rem' , textAlign:'center' , backgroundColor:'#054fa1' , borderRadius:'3rem'}} className=" card landing p-5">
+              <div className="card-body">
               <div className="row">
                 <div className="col">
                   <img src={NL} className="landing-image" alt="Aquakart Logo" />
@@ -136,9 +137,11 @@ const Home = () => {
 
                 <div className="col">
                   <br />
-                  <h1>Aquakart</h1>
+                  <h1 style={{color:'white'}} >Aquakart</h1>
+                  <br/>
                   <button type="button" class="landingbutton"><Link style={{ textDecoration: 'none', color: 'black' }} to='/blog'><b>Blogs</b></Link></button>
                 </div>
+              </div>
               </div>
               <br/>
               <Carousel cols={2} rows={1} loop={true} autoplay={3000}>

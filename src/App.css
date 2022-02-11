@@ -250,9 +250,8 @@ button:hover {
   color: red;
 }
 
-.landing{
+card{
   margin: 10rem;
-  padding: 10rem;
   background-color:#054fa1;
   text-align: center;
   color: #ffffff;
