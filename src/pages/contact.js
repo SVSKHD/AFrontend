@@ -2,7 +2,7 @@ import Layout from "../Components/Layout/Layout";
 import Contact1 from "../images/contact.jpg";
 import Banner from "../images/contact-banner.jpg";
 import Seo from "../Components/seo/Seo";
-import { FaWhatsapp, FaPhone , FaInstagram} from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -27,7 +27,11 @@ const Contact = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div class="btn-group align" role="group" aria-label="Basic example">
+              <div
+                class="btn-group align"
+                role="group"
+                aria-label="Basic example"
+              >
                 <a
                   href={`https://api.whatsapp.com/send?phone=919182119842&text=Please send us your queries`}
                   target={"_blank"}

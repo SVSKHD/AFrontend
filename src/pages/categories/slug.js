@@ -26,7 +26,7 @@ const Slug = ({ match }) => {
   return (
     <>
       <Layout>
-        <div style={{marginBottom:'2rem'}}/>
+        <div style={{ marginBottom: "2rem" }} />
         <div className="m-5">
           <Seo
             title={`${category.name} | AquaKart | Best Budget market`}

@@ -1,8 +1,7 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, BrowserRouter as Router, Route  } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LOGO from "./images/logo.png";
-
 
 // userAuth
 import UserRoute from "./routes/UserRoute";
@@ -174,7 +173,7 @@ function App() {
     // cleanup
     return () => unsubscribe();
   }, [dispatch]);
-   
+
   return (
     <>
       <Suspense

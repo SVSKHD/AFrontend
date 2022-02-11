@@ -1,6 +1,6 @@
 import LOGO from "../../images/logo-white.png";
 import CategoryList from "../Lists/CategoryList";
-import { FaWhatsapp, FaPhone , FaInstagram} from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const date = new Date().getFullYear();
@@ -102,13 +102,13 @@ const Footer = () => {
                     <FaPhone size={30} />
                   </a>
                   <a
-                  href="https://www.instagram.com/aquakart.co.in"
-                  target="_blank"
-                  type="button"
-                  className="btn btn-light"
-                >
-                  <FaInstagram size={30} />
-                </a>
+                    href="https://www.instagram.com/aquakart.co.in"
+                    target="_blank"
+                    type="button"
+                    className="btn btn-light"
+                  >
+                    <FaInstagram size={30} />
+                  </a>
                 </div>
               </ul>
             </div>

@@ -1,10 +1,10 @@
-import {useState , useEffect} from "react"
+import { useState, useEffect } from "react";
 import Layout from "../Components/Layout/Layout";
 // imgaes
 import IMG1 from "../images/slide-1.jpg";
 import IMG2 from "../images/slide-2.jpg";
 import IMG3 from "../images/slide-3.jpg";
-import NL from "../images/logo-white.png"
+import NL from "../images/logo-white.png";
 // imgaes
 import IMG4 from "../images/delivery.png";
 import IMG5 from "../images/medal.png";
@@ -15,16 +15,15 @@ import Softeners from "../Components/landingPage/Softeners";
 // seo
 import Seo from "../Components/seo/Seo";
 import LandingPageSchema from "../Components/seo/LandingPageSchema";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import Carousel from "react-grid-carousel";
 import ShopBadge from "../Components/Badges/ShopBadge";
-import {getCategories} from "../Components/functions/category"
-
+import { getCategories } from "../Components/functions/category";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     getCategories().then((res) => setCategories(res.data));
   }, []);
@@ -127,30 +126,49 @@ const Home = () => {
           <div className="mb-5" />
 
           <div className="container">
-            <div style={{margin:'5rem' , textAlign:'center' , backgroundColor:'#054fa1' , borderRadius:'3rem'}} className=" card landing p-5">
+            <div
+              style={{
+                margin: "5rem",
+                textAlign: "center",
+                backgroundColor: "#054fa1",
+                borderRadius: "3rem",
+              }}
+              className=" card landing p-5"
+            >
               <div className="card-body">
-              <div className="row">
-                <div className="col">
-                  <img src={NL} className="landing-image" alt="Aquakart Logo" />
-                  <br />
-                </div>
+                <div className="row">
+                  <div className="col">
+                    <img
+                      src={NL}
+                      className="landing-image"
+                      alt="Aquakart Logo"
+                    />
+                    <br />
+                  </div>
 
-                <div className="col">
-                  <br />
-                  <h1 style={{color:'white'}} >Aquakart</h1>
-                  <br/>
-                  <button type="button" class="landingbutton"><Link style={{ textDecoration: 'none', color: 'black' }} to='/blog'><b>Blogs</b></Link></button>
+                  <div className="col">
+                    <br />
+                    <h1 style={{ color: "white" }}>Aquakart</h1>
+                    <br />
+                    <button type="button" class="landingbutton">
+                      <Link
+                        style={{ textDecoration: "none", color: "black" }}
+                        to="/blog"
+                      >
+                        <b>Blogs</b>
+                      </Link>
+                    </button>
+                  </div>
                 </div>
               </div>
-              </div>
-              <br/>
+              <br />
               <Carousel cols={2} rows={1} loop={true} autoplay={3000}>
-                  {categories.map((c, i) => (
-                    <Carousel.Item key={i}>
-                      <ShopBadge name={c.name} to={`/category/${c.slug}`} />
-                    </Carousel.Item>
-                  ))}
-                </Carousel>
+                {categories.map((c, i) => (
+                  <Carousel.Item key={i}>
+                    <ShopBadge name={c.name} to={`/category/${c.slug}`} />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
             </div>
           </div>
 

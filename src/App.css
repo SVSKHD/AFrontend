@@ -235,35 +235,34 @@ button:hover {
 }
 
 /* Aboutcss */
-.align{
+.align {
   text-align: center;
 }
 
-.product-wishlist{
+.product-wishlist {
   color: red;
   transition-property: color;
   transition-duration: 2s;
 }
 
-
-.product-wishlist:hover{
+.product-wishlist:hover {
   color: red;
 }
 
-card{
+card {
   margin: 10rem;
-  background-color:#054fa1;
+  background-color: #054fa1;
   text-align: center;
   color: #ffffff;
   border-radius: 2rem;
 }
 
-.landing-image{
-  margin:10px;
+.landing-image {
+  margin: 10px;
   height: 100px;
 }
 
-.landingbutton{
-  padding : 10px;
+.landingbutton {
+  padding: 10px;
   border-radius: 1.5rem;
 }

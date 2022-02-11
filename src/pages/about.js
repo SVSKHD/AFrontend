@@ -3,50 +3,50 @@ import Seo from "../Components/seo/Seo";
 import Carousel from "react-grid-carousel";
 
 // images
-import AS from "../images/AS.jpg"
-import BS from "../images/BS.jpg"
-import GS from "../images/GS.jpg"
-import ERO from "../images/ERO.jpeg"
-import ROW from "../images/ROW.png"
-import ROS from "../images/ROS.jpg"
+import AS from "../images/AS.jpg";
+import BS from "../images/BS.jpg";
+import GS from "../images/GS.jpg";
+import ERO from "../images/ERO.jpeg";
+import ROW from "../images/ROW.png";
+import ROS from "../images/ROS.jpg";
 
 const About = () => {
   const images = [
     {
       name: "AquaKart",
-      src: AS
+      src: AS,
     },
     {
       name: "AquaKart",
-      src: BS
+      src: BS,
     },
     {
       name: "AquaKart",
-      src: GS
+      src: GS,
     },
     {
       name: "AquaKart",
-      src: ERO
+      src: ERO,
     },
     {
       name: "AquaKart",
-      src: ROW
+      src: ROW,
     },
     {
       name: "AquaKart",
-      src: ROS
+      src: ROS,
     },
-  ]
+  ];
   return (
     <Layout>
       <Seo
-          title={`AquaKart | About Us | Best Budget market`}
-          description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
-          keywords={`Aquakart , Flipkart , Aquakart About Us , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
-          keyphrase={`Aquakaart About Us ,  Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-          image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
-          url={`${process.env.REACT_APP_URL}/about`}
-        />
+        title={`AquaKart | About Us | Best Budget market`}
+        description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+        keywords={`Aquakart , Flipkart , Aquakart About Us , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+        keyphrase={`Aquakaart About Us ,  Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+        image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+        url={`${process.env.REACT_APP_URL}/about`}
+      />
       <div>
         <Carousel cols={3} rows={1} gap={10} loop={true} autoplay={8000}>
           {images.map((m, i) => (
@@ -61,7 +61,9 @@ const About = () => {
         <div className="card">
           <div className="card-body shadow-lg">
             <div>
-              <h1 className="text-center"><b>About Us</b></h1>
+              <h1 className="text-center">
+                <b>About Us</b>
+              </h1>
               <hr />
 
               <div className="row">
@@ -109,7 +111,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div style={{marginBottom:'2rem'}}/>
+      <div style={{ marginBottom: "2rem" }} />
     </Layout>
   );
 };
