@@ -127,7 +127,7 @@ const Home = () => {
           <div className="mb-5" />
 
           <div className="container">
-            <div className="landing">
+            <div className="landing p-5">
               <div className="row">
                 <div className="col">
                   <img src={NL} className="landing-image" alt="Aquakart Logo" />
