@@ -138,12 +138,16 @@ const Home = () => {
             >
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img src={NL} class="img-fluid rounded-start" alt="Aquakart Category Intro" />
+                  <img
+                    src={NL}
+                    class="img-fluid rounded-start"
+                    alt="Aquakart Category Intro"
+                  />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h1 class="card-title">Aquakart</h1>
-                    <hr/>
+                    <hr />
                     <Carousel cols={2} rows={1} loop={true} autoplay={3000}>
                       {categories.map((c, i) => (
                         <Carousel.Item key={i}>

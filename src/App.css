@@ -266,3 +266,30 @@ card {
   padding: 10px;
   border-radius: 1.5rem;
 }
+
+.profile {
+  font-family: Montserrat;
+  font-weight: bolder;
+}
+
+.profileusername {
+  font-family: Montserrat;
+  font-size: 3rem;
+  color: #054fa1;
+}
+
+.dashboardtitle {
+  font-family: Montserrat;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: #054fa1;
+}
+
+.accordion-button {
+  background-color: #054fa1;
+}
+
+.decorate {
+  text-decoration: none;
+  color: #054fa1;
+}

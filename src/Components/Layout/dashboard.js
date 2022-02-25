@@ -1,6 +1,14 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { useSelector } from "react-redux";
+import {
+  FaAddressBook,
+  FaPhone,
+  FaHeart,
+  FaStarOfLife,
+  FaShoppingBag,
+  FaClipboard,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Dashboard = (props) => {
@@ -8,26 +16,32 @@ const Dashboard = (props) => {
     {
       path: "/user/dashboard",
       name: "Dashboard",
+      icon: <FaClipboard size={25} />,
     },
     {
       path: "/user/orders",
       name: "Orders",
+      icon: <FaShoppingBag size={25} />,
     },
     {
       path: "/user/wish-list",
       name: "Wish-List",
+      icon: <FaHeart size={25} />,
     },
     {
       path: "/user/change-password",
       name: "Change-Password",
+      icon: <FaStarOfLife size={25} />,
     },
     {
       path: "/user/contactus",
       name: "Contact us",
+      icon: <FaPhone size={25} />,
     },
     {
       path: "/user/address",
       name: "Address",
+      icon: <FaAddressBook size={25} />,
     },
   ];
   const { user } = useSelector((state) => ({ ...state }));
@@ -36,44 +50,57 @@ const Dashboard = (props) => {
       <Nav />
       <main>
         <div className="container">
-          <div style={{ marginBottom: "6rem" }} />
-          <h1>
-            <b className="username-welcome">Hello</b>{" "}
-            <b className="username">{user.name}</b>
-          </h1>
-          <hr />
+          <div style={{ marginBottom: "8rem" }} />
           <div className="row">
-            <div className="col col-md-4 col-lg-4">
-              <div className="card mb-2">
+            <div className="col-md-4">
+              <div
+                className="card mb-2 shadow-lg"
+                style={{ borderRadius: "0rem" }}
+              >
                 <div className="card-body">
-                  <ul className="list-unstyled mt-3 footer-links">
-                    {nav.map((items, i) => (
-                      <Link
-                        className="text-decoration-none"
+                  <p className="profile">
+                    Hello
+                    <h5>
+                      <b className="profileusername">{user.name}</b>
+                    </h5>
+                  </p>
+                </div>
+              </div>
+              <div className="card shadow-lg" style={{ borderRadius: "0rem" }}>
+                <div className="card-body">
+                  {nav.map((m, i) => (
+                    <ul class="list-group">
+                      <li
                         key={i}
-                        to={items.path}
+                        class="list-group-item"
+                        style={{ borderRadius: "0rem", padding: "2rem" }}
                       >
-                        <li className="list-group-item">
-                          <b>{items.name}</b>
-                        </li>
-                      </Link>
-                    ))}
-                  </ul>
+                        <Link className="decorate" to={m.path}>
+                          <div className="row">
+                            <div className="col-2">{m.icon}</div>
+                            <div className="col-10">
+                              <h4>{m.name}</h4>
+                            </div>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
                 </div>
               </div>
             </div>
-            <div className="col col-md-8 col-lg-8">
-              <div className="card shadow-lg">
+            <div className="col-md-8">
+              <div className="card shadow-lg" style={{ borderRadius: "0rem" }}>
                 <div className="card-body">
-                  <h1>{props.title}</h1>
+                  <h3 className="dashboardtitle">{props.title}</h3>
                   <hr />
-                  <div className="container">{props.children}</div>
+                  {props.children}
                 </div>
               </div>
             </div>
           </div>
+          <div style={{ marginBottom: "10rem" }} />
         </div>
-        <div style={{ marginBottom: "2rem" }} />
       </main>
       <Footer />
     </div>
