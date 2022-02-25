@@ -274,7 +274,7 @@ card {
 
 .profileusername {
   font-family: Montserrat;
-  font-size: 3rem;
+  font-size: 2.1rem;
   color: #054fa1;
 }
 
@@ -285,11 +285,57 @@ card {
   color: #054fa1;
 }
 
+.dashboardcardtitle{
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #054fa1;
+}
+
+.dashboardalign{
+   transition:2s;
+   position:absolute;
+  -webkit-transition:2s;
+  -moz-transition:2s;
+  right:calc(100% - 150px);
+}
+.dashboardalign:hover {
+right:2rem;
+}
+
+.dashboardcontent{
+  padding: 0.2rem;
+  font-weight: bold;
+  color: #072227;
+}
+
+.dashboardcard{
+  text-decoration: none;
+}
+
 .accordion-button {
   background-color: #054fa1;
 }
 
 .decorate {
   text-decoration: none;
+  color: #054fa1;
+}
+
+.wishListCard{
+  font-family: Montserrat;
+  font-size: 1.3rem;
+  color: #054fa1;
+  font-weight: bold;
+}
+
+.passwordcard{
+  font-family: Montserrat;
+}
+
+.passwordcardtitle{
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-weight: bold;
   color: #054fa1;
 }

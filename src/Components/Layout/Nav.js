@@ -98,13 +98,6 @@ const Nav = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="nav-items d-inline">
-              {!user && (
-                <span className="login">
-                  <a href="/signin">Login</a>
-                </span>
-              )}
               {user && (
                 <div class="nav-items d-inline">
                   <div class="dropdown d-inline profile">
@@ -161,6 +154,14 @@ const Nav = () => {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="nav-items d-inline">
+              {!user && (
+                <span className="login">
+                  <a href="/signin">Login</a>
+                </span>
+              )}
+              
 
               <span className="cart">
                 <a href="/cart">

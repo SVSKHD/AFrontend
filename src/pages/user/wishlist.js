@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import WishListCard from "../../Components/cards/wishlistCard";
 import { getWishlist, removeWishlist } from "../../Components/functions/user";
 import Dashboard from "../../Components/Layout/dashboard";

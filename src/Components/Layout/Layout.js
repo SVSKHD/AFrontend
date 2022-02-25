@@ -5,6 +5,7 @@ const Layout = (props) => {
   return (
     <>
       <Nav />
+      <br/>
       <main>{props.children}</main>
       <Footer />
     </>

@@ -23,16 +23,19 @@ const UserPassword = () => {
 
   const PasswordForm = () => (
     <>
-      <div className="card">
+      <div className="card passwordcard">
         <div className="card-body p-4">
-          <form onSubmit={handleSubmit}>
-            <label>Password Update</label>
+          <h6 className="passwordcardtitle">Change Your Password</h6>
+          <form>
             <br className="mb-3" />
             <input
               type="password"
+              class="form-control"
+              id="exampleInputPassword1"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your New password"
               className="form-control"
+              style={{borderRadius:'0rem'}}
               disabled={loading}
             />
             <br className="mb-3" />
