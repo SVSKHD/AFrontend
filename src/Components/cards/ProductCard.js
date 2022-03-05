@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Default from "../../images/Default.png";
-import { ShowAverage } from "../../Components/functions/Ratings";
+//import { ShowAverage } from "../../Components/functions/Ratings";
 import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";

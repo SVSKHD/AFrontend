@@ -8,6 +8,7 @@ import {
   createCashOrderForUser,
   emptyUserCart,
 } from "../Components/functions/user";
+import Seo from "../Components/seo/Seo"
 
 const Payment = ({ history }) => {
   const dispatch = useDispatch();
@@ -45,10 +46,19 @@ const Payment = ({ history }) => {
       }
     });
   };
+  
   const { user, cart, COD } = useSelector((state) => ({ ...state }));
   const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
   return (
     <Layout>
+      <Seo
+        title={`AquaKart | Payment Methods | Best Budget market`}
+        description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+        keywords={`Aquakart , Flipkart , Aquakart About Us , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+        keyphrase={`Aquakaart About Us ,  Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+        image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+        url={`${process.env.REACT_APP_URL}/payment`}
+      />
       <div className="mb-1" />
       <div className="container">
         <div className="card">
@@ -58,7 +68,7 @@ const Payment = ({ history }) => {
             <hr />
             <div className="row">
               <div className="col-md-7">
-                <h3>Product Summarary</h3>
+                <h3>Product Summary</h3>
                 <hr />
                 <div className="row">
                   {cart.map((c, i) => (

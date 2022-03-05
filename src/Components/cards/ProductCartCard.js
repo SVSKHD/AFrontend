@@ -1,10 +1,18 @@
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch  , useSelector} from "react-redux";
 import Default from "../../images/logo.png";
 import ModalImage from "react-modal-image";
 import { toast } from "react-toastify";
+import { FaRegHeart, FaHeart  , FaTrash} from "react-icons/fa";
+import { addToWishlist } from "../functions/user";
+import {useHistory} from "react-router-dom"
+
 
 const ProductCartCard = ({ p }) => {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => ({ ...state }));
+  const history = useHistory();
+  const [color, setColor] = useState(false);
 
   const handleQuantityChange = (e) => {
     // console.log("available quantity", p.quantity);
@@ -59,6 +67,18 @@ const ProductCartCard = ({ p }) => {
     }
   };
 
+  const redirectToLogin = () =>{
+    history.push("/signin")
+  }
+
+  const handleAddToWishlist = (e) => {
+    addToWishlist(p._id, user.token).then((res) => {
+      console.log("ADDED TO WISHLIST", res.data);
+      toast.success("Added to wishlist", { position: "bottom-center" });
+      history.push("/user/wish-list");
+    });
+  };
+
   return (
     <div class="card shadow-lg mb-3">
       <div class="card-body">
@@ -78,12 +98,12 @@ const ProductCartCard = ({ p }) => {
                   onClick={handleRemove}
                   class="pull-right text-success cursor-pointer"
                 >
-                  <i class="bi bi-trash"></i>
+                  <FaTrash size={25}/>
                 </span>
               </h5>
               <div class="d-flex align-items-center justify-content-between prodContents">
                 <span>
-                  <p class="text-secondary mb-0">{p.title}</p>
+                  <p class="text-secondary mb-0"><b>{p.title}</b></p>
                 </span>
                 <span>
                   QTY:{" "}
@@ -97,16 +117,16 @@ const ProductCartCard = ({ p }) => {
                 <span>
                   <span class="item-cartPrice fw-bold">&#8377; {p.price}</span>
                 </span>
-                <span>
+                {user ? (
                   <span
-                    class="cursor-pointer text-danger whishlist text-danger"
-                    status="0"
-                    uid=""
-                    pid="18"
+                    onClick={() => handleAddToWishlist()}
+                    onMouseEnter={() => setColor(true)}
+                    onMouseLeave={() => setColor(false)}
+                    className="product-wishlist"
                   >
-                    <i class="bi bi-heart"></i>
+                    {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
                   </span>
-                </span>
+                ) : (<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25} /></span>)}
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 import Layout from "../Components/Layout/Layout";
-import { FaShoppingBag } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import ProductCartCard from "../Components/cards/ProductCartCard";
 import { userCart } from "../Components/functions/user";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
+import Seo from "../Components/seo/Seo";
 
 const Cart = () => {
   const { user, cart } = useSelector((state) => ({ ...state }));
@@ -44,6 +44,14 @@ const Cart = () => {
   return (
     <>
       <Layout>
+      <Seo
+        title={`AquaKart | Cart  | Best Budget market`}
+        description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+        keywords={`Aquakart , Flipkart , Aquakart About Us , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+        keyphrase={`Aquakaart About Us ,  Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+        image={`https://res.cloudinary.com/dcqjrwaoi/image/upload/v1627018401/zytwjcfvx7n7rmgm8uaj.jpg`}
+        url={`${process.env.REACT_APP_URL}/cart`}
+      />
         <section class="cart-page">
           <div class="container">
             <div class="row">

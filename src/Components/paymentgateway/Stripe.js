@@ -1,7 +1,7 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createPaymentIntent } from "../../Components/functions/stripe";
 import { createOrder, emptyUserCart } from "../functions/user";
 import { FaRupeeSign } from "react-icons/fa";
@@ -19,7 +19,7 @@ const Stripe = () => {
   const [totalAfterDiscount, setTotalAfterDiscount] = useState(0);
   const [payable, setPayable] = useState(0);
 
-  const history = useHistory();
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -100,6 +100,7 @@ const Stripe = () => {
       },
     },
   };
+
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route , Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LOGO from "./images/logo.png";
 
@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
 import "react-toastify/dist/ReactToastify.css";
+
 
 // pages
 const Home = lazy(() => import("./pages/Home"));
@@ -167,7 +168,10 @@ function App() {
               },
             });
           })
-          .catch((err) => console.log(err));
+          .catch((err) =>{
+            <Redirect to="/"/>
+          console.log(err)
+        });
       }
     });
     // cleanup
