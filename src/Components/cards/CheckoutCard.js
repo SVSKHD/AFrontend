@@ -5,9 +5,11 @@ import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addToWishlist } from "../functions/user";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaHeart, FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
 
 const CheckoutCard = ({ product }) => {
+  const [color, setColor] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const { user } = useSelector((state) => ({ ...state }));
@@ -61,15 +63,16 @@ const CheckoutCard = ({ product }) => {
                   </span>
                 </span>
                 <span>
-                  <span
-                    onClick={handleAddToWishlist}
-                    class="cursor-pointer text-danger whishlist text-danger"
-                    status="0"
-                    uid=""
-                    pid="18"
-                  >
-                    <i class="bi bi-heart"></i>
-                  </span>
+                  {user ? (
+                    <span
+                      onClick={() => handleAddToWishlist()}
+                      onMouseEnter={() => setColor(true)}
+                      onMouseLeave={() => setColor(false)}
+                      className="product-wishlist"
+                    >
+                      {color ? <FaHeart size={20} /> : <FaRegHeart size={20} />}
+                    </span>
+                  ) : (<span className="product-wishlist"><FaRegHeart size={20} /></span>)}
                 </span>
               </div>
             </div>

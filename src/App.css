@@ -339,3 +339,13 @@ right:2rem;
   font-weight: bold;
   color: #054fa1;
 }
+
+.blogtitlepart{
+  padding: 4rem;
+  margin: 10rem;
+}
+
+.blogfont{
+  font-family: Montserrat;
+  color: #054fa1;
+}

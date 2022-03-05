@@ -45,6 +45,10 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  const redirectToLogin = () =>{
+    history.push("/signin")
+  }
+
   const handleAddToWishlist = (e) => {
     addToWishlist(product._id, user.token).then((res) => {
       console.log("ADDED TO WISHLIST", res.data);
@@ -52,6 +56,8 @@ const ProductCard = ({ product }) => {
       history.push("/user/wish-list");
     });
   };
+
+
 
   const dispatch = useDispatch();
   const { title, description, images, slug, price, quantity } = product;
@@ -81,6 +87,7 @@ const ProductCard = ({ product }) => {
                 <i className="bi bi-cart2"></i>Add to Cart
               </button>
             </span>
+            {user ? (
             <span
               onClick={() => handleAddToWishlist()}
               onMouseEnter={() => setColor(true)}
@@ -89,6 +96,7 @@ const ProductCard = ({ product }) => {
             >
               {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
             </span>
+            ):(<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25}/></span>)}
           </div>
         </div>
       </div>
