@@ -164,10 +164,9 @@ const Product = ({ match }) => {
                   ) : (
                     <div className="card">
                       <div className="card-body">
-                        <ModalImage
+                        <img
                           alt="Aquakart"
-                          medium={Default}
-                          large={Default}
+                          src={Default}
                           className="mb-3 img-thumbnail" />
                       </div>
                     </div>
