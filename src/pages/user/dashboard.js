@@ -43,7 +43,7 @@ const userDashboard = (props) => {
                   {m.name}
                 </h5>
                 <p className="dashboardcontent">
-                  See Your Orders here 
+                  {m.description}
                 </p>
                 <div className="p-4">
                 <div className="dashboardalign">

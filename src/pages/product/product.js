@@ -26,6 +26,7 @@ import Seo from "../../Components/seo/Seo";
 import ProductSchema from "../../Components/seo/ProductSchema";
 import StarRating from "react-star-ratings";
 import RatingModal from "../../Components/Modals/RatingModal";
+import ModalImage from "react-modal-image";
 
 const Product = ({ match }) => {
   const [tootltip, setToolTip] = useState("Click to Add");
@@ -110,6 +111,14 @@ const Product = ({ match }) => {
     });
   };
 
+  const loadImage = (image) => (
+    <>
+      <ModalImage
+        large={image}
+      />
+    </>
+  )
+
   return (
     <Layout>
       <Seo
@@ -148,14 +157,18 @@ const Product = ({ match }) => {
                       {product.images &&
                         product.images.map((r, i) => (
                           <div key={i} className="product-large">
-                            <img src={r.url} key={r.public_id} />
+                            <img  src={r.url} alt="Aquakart Product Images" />
                           </div>
                         ))}
                     </Carousel>
                   ) : (
                     <div className="card">
                       <div className="card-body">
-                        <img src={Default} className="mb-3 img-thumbnail" />
+                        <ModalImage
+                          alt="Aquakart"
+                          medium={Default}
+                          large={Default}
+                          className="mb-3 img-thumbnail" />
                       </div>
                     </div>
                   )}
@@ -366,10 +379,10 @@ const Product = ({ match }) => {
             <div className="row">
               {related.length > 0
                 ? related.map((r, i) => (
-                    <div key={i} className="col-md-4 mb-1">
-                      <RelatedCard product={r} />
-                    </div>
-                  ))
+                  <div key={i} className="col-md-4 mb-1">
+                    <RelatedCard product={r} />
+                  </div>
+                ))
                 : "No Related Products"}
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, BrowserRouter as Router, Route , Redirect } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LOGO from "./images/logo.png";
 
@@ -168,10 +168,10 @@ function App() {
               },
             });
           })
-          .catch((err) =>{
-            <Redirect to="/"/>
-          console.log(err)
-        });
+          .catch((err) => {
+            <Redirect to="/" />
+            console.log(err)
+          });
       }
     });
     // cleanup
@@ -184,17 +184,16 @@ function App() {
         fallback={
           <>
             <div style={{ textAlign: "center" }}>
-              <div style={{ marginBottom: "10rem" }} />
+              <div style={{ marginBottom: "20rem" }} />
               <img
-                style={{ borderRadius: "15rem" }}
-                className="shadow-lg img-thumbnail"
+                style={{ borderRadius: "15rem", height: '200' }}
+                className=" shadow-lg img-thumbnail"
                 src={LOGO}
                 alt="Aquakrt Logo"
               />
               <div style={{ marginBottom: "2rem" }} />
-              <span class="text-center loader">
-                <span class="loader-inner"></span>
-              </span>
+              <div class="spinner-border" role="status" style={{color:'#054fa1'}}>
+              </div>
             </div>
           </>
         }
