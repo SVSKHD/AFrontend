@@ -7,7 +7,13 @@ import { FaWhatsapp, FaPhone, FaInstagram } from "react-icons/fa";
 const Contact = () => {
   return (
     <Layout>
-      <Seo />
+      <Seo
+          title={`AquaKart | Contact us here`}
+          description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
+          keywords={`Aquakart , Contact us here , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
+          keyphrase={`Kent Bathroom Softeners ,Aquakart contact us , Contact here , contact form , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
+          url={`${process.env.REACT_APP_URL}/contact`}
+        />
       <section class="static-banner position-relative">
         <img src={Banner} alt="Aquakart banner" class="w-100" />
       </section>
@@ -36,7 +42,7 @@ const Contact = () => {
                   href={`https://api.whatsapp.com/send?phone=919182119842&text=Please send us your queries`}
                   target={"_blank"}
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-light"
                 >
                   <FaWhatsapp size={30} />
                 </a>
@@ -52,7 +58,7 @@ const Contact = () => {
                   href="https://www.instagram.com/aquakart.co.in"
                   target="_blank"
                   type="button"
-                  className="btn btn-dark"
+                  className="btn btn-light"
                 >
                   <FaInstagram size={30} />
                 </a>
