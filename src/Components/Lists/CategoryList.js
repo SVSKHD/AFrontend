@@ -3,7 +3,7 @@ import { getCategories } from "../functions/category";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(setTimeout(false,4000));
 
   useEffect(() => {
     setLoading(true);
@@ -33,9 +33,9 @@ const CategoryList = () => {
   return (
     <>
       {loading ? (
-        <span class="loader">
-          <span class="loader-inner"></span>
-        </span>
+        <div className="mb-5">
+          <div class="spinner-border text-light" role="status" />
+        </div>
       ) : (
         LoadCategories()
       )}
