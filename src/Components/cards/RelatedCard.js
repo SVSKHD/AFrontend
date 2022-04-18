@@ -1,15 +1,22 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaCartPlus, FaExternalLinkAlt } from "react-icons/fa";
 import Default from "../../images/Default.png";
 import { ShowAverage } from "../functions/Ratings";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import _ from "lodash";
+import { toast } from "react-toastify";
+import { addToWishlist } from "../functions/user";
+import {useHistory} from "react-router-dom"
 
 const RelatedCard = ({ product }) => {
   const { title, price, description, images, slug } = product;
-
+  const history = useHistory();
   const [alert, setAlert] = useState("Available");
+  const [color , setColor] = useState(false)
+  const { user } = useSelector((state) => ({ ...state }));
+
 
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
@@ -51,6 +58,18 @@ const RelatedCard = ({ product }) => {
     }
   };
 
+  const handleAddToWishlist = (e) => {
+    addToWishlist(product._id, user.token).then((res) => {
+      console.log("ADDED TO WISHLIST", res.data);
+      toast.success("Added to wishlist", { position: "bottom-center" });
+      history.push("/user/wish-list");
+    });
+  };
+
+  const redirectToLogin = () =>{
+    history.push("/signin")
+  }
+
   return (
     <div className="card shadow-sm rounded-3 mx-2">
       <a href={`/product/${slug}`}>
@@ -84,9 +103,16 @@ const RelatedCard = ({ product }) => {
               </Link>
             </button>
           </span>
-          <span className="wishlist">
-            <i className="bi bi-heart text-danger"></i>
-          </span>
+         {user ? (
+            <span
+              onClick={() => handleAddToWishlist()}
+              onMouseEnter={() => setColor(true)}
+              onMouseLeave={() => setColor(false)}
+              className="product-wishlist"
+            >
+              {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+            </span>
+            ):(<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25}/></span>)}
         </div>
       </div>
     </div>
