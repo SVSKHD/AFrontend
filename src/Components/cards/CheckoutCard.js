@@ -72,7 +72,11 @@ const CheckoutCard = ({ product }) => {
                     >
                       {color ? <FaHeart size={20} /> : <FaRegHeart size={20} />}
                     </span>
-                  ) : (<span className="product-wishlist"><FaRegHeart size={20} /></span>)}
+                  ) : (
+                    <span className="product-wishlist">
+                      <FaRegHeart size={20} />
+                    </span>
+                  )}
                 </span>
               </div>
             </div>

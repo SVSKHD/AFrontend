@@ -36,7 +36,7 @@ const Home = () => {
           description={`Aquakart is all about your basic home need with the best prices and with all flexible options in payments and many more, avail of our services and rest yourself `}
           keywords={`Aquakart , Flipkart , Bathroom Water Softeners , Water RO Purifiers , many more in Regular Use of Home , Best bathroom Softeners in India  ,  Kent bathroom water siftener Demo`}
           keyphrase={`Kent Bathroom Softeners , Aquakart Softeners , Automatic Water Softeners , Manual Softeners `}
-          image={IMG1}
+          image="https://res.cloudinary.com/aquakartproducts/image/upload/v1651769490/Shop_Your_fav_Softeners_sj2mix.jpg"
           url={process.env.REACT_APP_URL}
         />
         <LandingPageSchema />
@@ -125,14 +125,14 @@ const Home = () => {
           </div>
           <div className="mb-5" />
 
-          <div className="container">
+          <div className="container-fluid">
             <div
               class="card mb-3"
               style={{
                 margin: "5rem",
                 textAlign: "center",
                 backgroundColor: "#054fa1",
-                borderRadius: "3rem",
+                borderRadius: "5px",
                 color: "white",
               }}
             >

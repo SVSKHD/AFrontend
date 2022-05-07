@@ -1,5 +1,10 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LOGO from "./images/logo.png";
 
@@ -19,8 +24,7 @@ import { ToastContainer } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-
-
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 // pages
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/about"));
@@ -169,8 +173,8 @@ function App() {
             });
           })
           .catch((err) => {
-            <Redirect to="/" />
-            console.log(err)
+            <Redirect to="/" />;
+            console.log(err);
           });
       }
     });
@@ -186,14 +190,17 @@ function App() {
             <div style={{ textAlign: "center" }}>
               <div style={{ marginBottom: "20rem" }} />
               <img
-                style={{ borderRadius: "15rem", height: '200' }}
+                style={{ borderRadius: "15rem", height: "200" }}
                 className=" shadow-lg img-thumbnail"
                 src={LOGO}
                 alt="Aquakrt Logo"
               />
               <div style={{ marginBottom: "2rem" }} />
-              <div class="spinner-border" role="status" style={{color:'#054fa1'}}>
-              </div>
+              <div
+                class="spinner-border"
+                role="status"
+                style={{ color: "#054fa1" }}
+              ></div>
             </div>
           </>
         }

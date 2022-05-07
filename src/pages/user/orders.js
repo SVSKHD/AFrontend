@@ -33,7 +33,10 @@ const UserOrders = () => {
       <div className="row">
         {order.products.map((p, i) => (
           <div key={i} className="col-md-6">
-            <div className="card mb-2 text-dark" style={{borderRadius:'0rem'}}>
+            <div
+              className="card mb-2 text-dark"
+              style={{ borderRadius: "0rem" }}
+            >
               <div className="card-body">
                 <p>
                   Product - Name : <b>{p.product.title}</b>

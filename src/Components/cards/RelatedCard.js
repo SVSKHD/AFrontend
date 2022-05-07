@@ -8,15 +8,14 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import _ from "lodash";
 import { toast } from "react-toastify";
 import { addToWishlist } from "../functions/user";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 const RelatedCard = ({ product }) => {
   const { title, price, description, images, slug } = product;
   const history = useHistory();
   const [alert, setAlert] = useState("Available");
-  const [color , setColor] = useState(false)
+  const [color, setColor] = useState(false);
   const { user } = useSelector((state) => ({ ...state }));
-
 
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
@@ -66,9 +65,9 @@ const RelatedCard = ({ product }) => {
     });
   };
 
-  const redirectToLogin = () =>{
-    history.push("/signin")
-  }
+  const redirectToLogin = () => {
+    history.push("/signin");
+  };
 
   return (
     <div className="card shadow-sm rounded-3 mx-2">
@@ -103,7 +102,7 @@ const RelatedCard = ({ product }) => {
               </Link>
             </button>
           </span>
-         {user ? (
+          {user ? (
             <span
               onClick={() => handleAddToWishlist()}
               onMouseEnter={() => setColor(true)}
@@ -112,7 +111,11 @@ const RelatedCard = ({ product }) => {
             >
               {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
             </span>
-            ):(<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25}/></span>)}
+          ) : (
+            <span className="product-wishlist" onClick={redirectToLogin}>
+              <FaRegHeart size={25} />
+            </span>
+          )}
         </div>
       </div>
     </div>

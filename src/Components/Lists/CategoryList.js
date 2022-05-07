@@ -3,7 +3,7 @@ import { getCategories } from "../functions/category";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(setTimeout(false,4000));
+  const [loading, setLoading] = useState(setTimeout(false, 4000));
 
   useEffect(() => {
     setLoading(true);

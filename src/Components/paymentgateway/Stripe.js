@@ -19,7 +19,6 @@ const Stripe = () => {
   const [totalAfterDiscount, setTotalAfterDiscount] = useState(0);
   const [payable, setPayable] = useState(0);
 
-
   const stripe = useStripe();
   const elements = useElements();
 
@@ -100,7 +99,6 @@ const Stripe = () => {
       },
     },
   };
-
 
   return (
     <div>

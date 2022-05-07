@@ -161,7 +161,6 @@ const Nav = () => {
                   <a href="/signin">Login</a>
                 </span>
               )}
-              
 
               <span className="cart">
                 <a href="/cart">

@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useDispatch  , useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Default from "../../images/logo.png";
 import ModalImage from "react-modal-image";
 import { toast } from "react-toastify";
-import { FaRegHeart, FaHeart  , FaTrash} from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaTrash } from "react-icons/fa";
 import { addToWishlist } from "../functions/user";
-import {useHistory} from "react-router-dom"
-
+import { useHistory } from "react-router-dom";
 
 const ProductCartCard = ({ p }) => {
   const dispatch = useDispatch();
@@ -65,11 +64,21 @@ const ProductCartCard = ({ p }) => {
         payload: cart,
       });
     }
+    toast.error(`Removed from Cart`, {
+      theme: "dark",
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    }); 
   };
 
-  const redirectToLogin = () =>{
-    history.push("/signin")
-  }
+  const redirectToLogin = () => {
+    history.push("/signin");
+  };
 
   const handleAddToWishlist = (e) => {
     addToWishlist(p._id, user.token).then((res) => {
@@ -98,12 +107,14 @@ const ProductCartCard = ({ p }) => {
                   onClick={handleRemove}
                   class="pull-right text-success cursor-pointer"
                 >
-                  <FaTrash size={25}/>
+                  <FaTrash size={25} />
                 </span>
               </h5>
               <div class="d-flex align-items-center justify-content-between prodContents">
                 <span>
-                  <p class="text-secondary mb-0"><b>{p.title}</b></p>
+                  <p class="text-secondary mb-0">
+                    <b>{p.title}</b>
+                  </p>
                 </span>
                 <span>
                   QTY:{" "}
@@ -126,7 +137,11 @@ const ProductCartCard = ({ p }) => {
                   >
                     {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
                   </span>
-                ) : (<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25} /></span>)}
+                ) : (
+                  <span className="product-wishlist" onClick={redirectToLogin}>
+                    <FaRegHeart size={25} />
+                  </span>
+                )}
               </div>
             </div>
           </div>

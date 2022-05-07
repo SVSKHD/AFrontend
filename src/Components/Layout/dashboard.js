@@ -10,7 +10,7 @@ import {
   FaClipboard,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import LOGO from "../../images/logo.png"
+import LOGO from "../../images/logo.png";
 
 const Dashboard = (props) => {
   const nav = [
@@ -61,19 +61,24 @@ const Dashboard = (props) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-3">
-                      <img src={LOGO} height="80" className="rounded-circle"/>
+                      <img src={LOGO} height="80" className="rounded-circle" />
                     </div>
-                    <div className="col-9"> <p className="profile">
-                      Hello
-                      <h5>
-                        <b className="profileusername">{user.name}</b>
-                      </h5>
-                    </p></div>
+                    <div className="col-9">
+                      {" "}
+                      <p className="profile">
+                        Hello
+                        <h5>
+                          <b className="profileusername">{user.name}</b>
+                        </h5>
+                      </p>
+                    </div>
                   </div>
-
                 </div>
               </div>
-              <div className="card shadow-lg mb-3" style={{ borderRadius: "0rem" }}>
+              <div
+                className="card shadow-lg mb-3"
+                style={{ borderRadius: "0rem" }}
+              >
                 <div className="card-body">
                   {nav.map((m, i) => (
                     <ul class="list-group">

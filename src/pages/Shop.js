@@ -16,7 +16,7 @@ import { FaStar } from "react-icons/fa";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(setTimeout(true, 8000));
   const [price, setPrice] = useState([0, 0]);
   const [ok, setOk] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -54,7 +54,7 @@ const Shop = () => {
   const { text } = search;
 
   const loadAllProducts = () => {
-    setLoading(true);
+    setLoading(setTimeout(true, 10000));
     getProductsByCount(20).then((p) => {
       setProducts(p.data);
       setLoading(false);
@@ -102,7 +102,8 @@ const Shop = () => {
                 checked={categoryIds.includes(c._id)}
                 class="custom-control-input"
                 id="cat1"
-              />
+              />{" "}
+              &nbsp;
               <label class="custom-control-label" for="cat1">
                 {c.name}
               </label>
@@ -125,7 +126,8 @@ const Shop = () => {
               value={c}
               class="custom-control-input"
               id="cat1"
-            />
+            />{" "}
+            &nbsp;
             <label class="custom-control-label" for="cat1">
               {c.name}
             </label>
@@ -192,7 +194,8 @@ const Shop = () => {
           onChange={handleBrand}
           class="custom-control-input"
           id="cat11"
-        />
+        />{" "}
+        &nbsp;
         <label class="custom-control-label" for="cat11">
           {b}
         </label>
@@ -290,6 +293,24 @@ const Shop = () => {
     </div>
   );
 
+  const clearAllLoading = () => {
+    setLoading(setTimeout(8000, true));
+    getProductsByCount(20).then((p) => {
+      setProducts(p.data);
+      setLoading(false);
+    });
+  };
+
+  const clearAll = () => {
+    clearAllLoading();
+    setPrice([0, 0]);
+    setCategoryIds([]);
+    setStar("");
+    setColor("");
+    setBrand(["Kent", "3M", "Grundfos", "IonExchange"]);
+    setShipping("");
+  };
+
   return (
     <>
       <Layout>
@@ -297,7 +318,7 @@ const Shop = () => {
           title={`Aquakart Shop with Best Filters ever | Aquakart.Store`}
           description={`Here you can choose your product with custom filters with your need optimised with wide range of varieties of products are added here with great discounts with immediate delivery.`}
           keywords={`Aquakart Shop with various products List , Grundfos , Kent , Liquiclear , Ao Smith`}
-          image={`https://aquakart.store/static/media/Default.9c4634fa.png`}
+          image="https://res.cloudinary.com/aquakartproducts/image/upload/v1651769490/Shop_Your_fav_Softeners_sj2mix.jpg"
           url={`${process.env.REACT_APP_URL}/shop`}
         />
         <section className="products-page pt-5">
@@ -320,7 +341,9 @@ const Shop = () => {
                       <span class="h6 font-weight-bold mb-0">FILTER BY</span>
                       <span class="clear-filter">
                         <a href="#" class="text-decoration-none text-secondary">
-                          <span class="clearall">Clear All</span>
+                          <span onClick={() => clearAll()} class="clearall">
+                            Clear All
+                          </span>
                           <button
                             class="btn btn-transparent close"
                             type="button"
@@ -368,7 +391,7 @@ const Shop = () => {
                     {showSubs()}
                   </div>
 
-                  <div class="inner-filters mt-4">
+                  {/* <div class="inner-filters mt-4">
                     <div class="filter-title border-bottom border-secondary">
                       <span class="h6 font-weight-bold mb-0">
                         CUSTOMER RATINGS
@@ -377,7 +400,7 @@ const Shop = () => {
                     <div class="filter-contents">
                       <div class="mt-2">{showStars()}</div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div class="inner-filters mt-4">
                     <div class="filter-title border-bottom border-secondary">
@@ -407,13 +430,21 @@ const Shop = () => {
                 </Carousel>
 
                 <hr />
-                <div className="row">
-                  {products.map((product, i) => (
-                    <div className="col-md-4">
-                      <ProductCard key={i} product={product} />
+                {loading ? (
+                  <div class="d-flex justify-content-center">
+                    <div className="mb-5">
+                      <div class="spinner-border" role="status" />
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ) : (
+                  <div className="row">
+                    {products.map((product, i) => (
+                      <div className="col-md-4">
+                        <ProductCard key={i} product={product} />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

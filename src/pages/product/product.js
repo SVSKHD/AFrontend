@@ -113,11 +113,9 @@ const Product = ({ match }) => {
 
   const loadImage = (image) => (
     <>
-      <ModalImage
-        large={image}
-      />
+      <ModalImage large={image} />
     </>
-  )
+  );
 
   return (
     <Layout>
@@ -157,7 +155,7 @@ const Product = ({ match }) => {
                       {product.images &&
                         product.images.map((r, i) => (
                           <div key={i} className="product-large">
-                            <img  src={r.url} alt="Aquakart Product Images" />
+                            <img src={r.url} alt="Aquakart Product Images" />
                           </div>
                         ))}
                     </Carousel>
@@ -167,7 +165,8 @@ const Product = ({ match }) => {
                         <img
                           alt="Aquakart"
                           src={Default}
-                          className="mb-3 img-thumbnail" />
+                          className="mb-3 img-thumbnail"
+                        />
                       </div>
                     </div>
                   )}
@@ -378,10 +377,10 @@ const Product = ({ match }) => {
             <div className="row">
               {related.length > 0
                 ? related.map((r, i) => (
-                  <div key={i} className="col-md-4 mb-1">
-                    <RelatedCard product={r} />
-                  </div>
-                ))
+                    <div key={i} className="col-md-4 mb-1">
+                      <RelatedCard product={r} />
+                    </div>
+                  ))
                 : "No Related Products"}
             </div>
           </div>

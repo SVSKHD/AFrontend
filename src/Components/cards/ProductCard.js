@@ -43,21 +43,28 @@ const ProductCard = ({ product }) => {
         payload: true,
       });
     }
+    toast.success(`Successfully Added to cart`, {
+      theme: "dark",
+      position: "bottom-center",
+      autoClose: 10000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
-  const redirectToLogin = () =>{
-    history.push("/signin")
-  }
+  const redirectToLogin = () => {
+    history.push("/signin");
+  };
 
   const handleAddToWishlist = (e) => {
     addToWishlist(product._id, user.token).then((res) => {
       console.log("ADDED TO WISHLIST", res.data);
       toast.success("Added to wishlist", { position: "bottom-center" });
-      history.push("/user/wish-list");
     });
   };
-
-
 
   const dispatch = useDispatch();
   const { title, description, images, slug, price, quantity } = product;
@@ -88,15 +95,19 @@ const ProductCard = ({ product }) => {
               </button>
             </span>
             {user ? (
-            <span
-              onClick={() => handleAddToWishlist()}
-              onMouseEnter={() => setColor(true)}
-              onMouseLeave={() => setColor(false)}
-              className="product-wishlist"
-            >
-              {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
-            </span>
-            ):(<span className="product-wishlist" onClick={redirectToLogin}><FaRegHeart size={25}/></span>)}
+              <span
+                onClick={() => handleAddToWishlist()}
+                onMouseEnter={() => setColor(true)}
+                onMouseLeave={() => setColor(false)}
+                className="product-wishlist"
+              >
+                {color ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+              </span>
+            ) : (
+              <span className="product-wishlist" onClick={redirectToLogin}>
+                <FaRegHeart size={25} />
+              </span>
+            )}
           </div>
         </div>
       </div>

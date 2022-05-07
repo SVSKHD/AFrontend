@@ -17,7 +17,9 @@ const Blog = () => {
           <div className="row">
             <div className="col-2 col-md-2" />
             <div className="col-8 col-md-8">
-              <h1 className="display-3 text-center blogfont">Know More About the products Here</h1>
+              <h1 className="display-3 text-center blogfont">
+                Know More About the products Here
+              </h1>
             </div>
             <div className="col-2 col-md-2" />
           </div>

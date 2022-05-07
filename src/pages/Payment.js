@@ -8,7 +8,7 @@ import {
   createCashOrderForUser,
   emptyUserCart,
 } from "../Components/functions/user";
-import Seo from "../Components/seo/Seo"
+import Seo from "../Components/seo/Seo";
 
 const Payment = ({ history }) => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Payment = ({ history }) => {
       }
     });
   };
-  
+
   const { user, cart, COD } = useSelector((state) => ({ ...state }));
   const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
   return (

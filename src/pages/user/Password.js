@@ -35,7 +35,7 @@ const UserPassword = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your New password"
               className="form-control"
-              style={{borderRadius:'0rem'}}
+              style={{ borderRadius: "0rem" }}
               disabled={loading}
             />
             <br className="mb-3" />
