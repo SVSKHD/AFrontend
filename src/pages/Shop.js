@@ -433,7 +433,7 @@ const Shop = () => {
                 {loading ? (
                   <div class="d-flex justify-content-center">
                     <div className="mb-5">
-                      <div class="spinner-border" role="status" />
+                      <div class="spinner-border text-primary" role="status" />
                     </div>
                   </div>
                 ) : (

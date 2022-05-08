@@ -5,17 +5,18 @@ import { getCategory } from "../../Components/functions/category";
 import Layout from "../../Components/Layout/Layout";
 import Seo from "../../Components/seo/Seo";
 import LOGO from "../../images/logo.png";
+import CategoryList from "../../Components/Lists/CategoryList";
 
 const Slug = ({ match }) => {
   const [category, setCategory] = useState({});
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(setTimeout(true , 10000));
 
   const { slug } = match.params;
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(setInterval(true, 10000));
     getCategory(slug).then((res) => {
       setProducts(res.data.products);
       setCategory(res.data.category);
@@ -36,37 +37,34 @@ const Slug = ({ match }) => {
             image={`https://res.cloudinary.com/dcqjrwaoi/image/upload/v1626839719/vvbjezo5crgmmdjanzms.jpg`}
             url={`${process.env.REACT_APP_URL}/category/${category.name}`}
           />
-          <div className="container">
-            <div className="row">
-              <h4>
-                {loading ? (
-                  <div style={{ textAlign: "center" }}>
-                    <div style={{ marginBottom: "10rem" }} />
-                    <img
-                      style={{ borderRadius: "15rem" }}
-                      className="shadow-lg img-thumbnail"
-                      src={LOGO}
-                      alt="Aquakrt Logo"
-                    />
-                    <div style={{ marginBottom: "2rem" }} />
-                    <span class="loader">
-                      <span class="loader-inner"></span>
-                    </span>
-                  </div>
-                ) : (
-                  <h1 className="text-center m-5">
-                    {products.length} Products in {category.name}
-                  </h1>
-                )}
-              </h4>
+        </div>
+
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-xs-12 col-lg-3 col-md-3">
+              <img src={LOGO} height="300" alt="Aquakart- Logo" />
               <hr />
-              <div className="row">
-                {products.map((p, i) => (
-                  <div key={i} className="col-md-4">
-                    <ProductCard product={p} />
-                  </div>
-                ))}
-              </div>
+              <h1 className="text-center display-3">
+                {products.length} Products in {category.name}
+              </h1>
+              <hr/>
+              <CategoryList/>
+            </div>
+            <div className="col-sm-12 col-xs-12 col-lg-9 col-md-9">
+              <div style={{ margin: "10rem" }} />
+              {loading ? (
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status"/>
+                </div>
+              ) : (
+                <div className="row">
+                  {products.map((p, i) => (
+                    <div key={i} className="col-md-4">
+                      <ProductCard product={p} />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
